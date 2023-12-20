@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>top-level-items</key>
+	<array>
+		<dict>
+			<key>children</key>
+			<array>
+				<dict>
+					<key>children</key>
+					<array>
+						<dict>
+							<key>destination</key>
+							<dict>
+								<key>location-parameters</key>
+								<dict>
+									<key>EndingColumnNumber</key>
+									<string>0</string>
+									<key>EndingLineNumber</key>
+									<string>10</string>
+									<key>StartingColumnNumber</key>
+									<string>0</string>
+									<key>StartingLineNumber</key>
+									<string>9</string>
+									<key>Timestamp</key>
+									<string>723643962.017823</string>
+								</dict>
+								<key>rebasable-url</key>
+								<dict>
+									<key>base</key>
+									<string>workspace</string>
+									<key>payload</key>
+									<dict>
+										<key>relative-path</key>
+										<string>Gremo/ScoreCalculate.swift</string>
+									</dict>
+								</dict>
+							</dict>
+							<key>text-context</key>
+							<dict>
+								<key>focused</key>
+								<string>//import TipKit
+</string>
+								<key>leading</key>
+								<string>import SwiftUI
+import Foundation
+</string>
+								<key>trailing</key>
+								<string>////
+//@available(iOS 17, *)
+//struct NewFunctions: Tip {
+</string>
+							</dict>
+							<key>title</key>
+							<string>版本7預計加入：Tip</string>
+							<key>type</key>
+							<string>bookmark</string>
+						</dict>
+						<dict>
+							<key>destination</key>
+							<dict>
+								<key>location-parameters</key>
+								<dict>
+									<key>EndingColumnNumber</key>
+									<string>0</string>
+									<key>EndingLineNumber</key>
+									<string>170</string>
+									<key>StartingColumnNumber</key>
+									<string>0</string>
+									<key>StartingLineNumber</key>
+									<string>169</string>
+									<key>Timestamp</key>
+									<string>723644198.457179</string>
+								</dict>
+								<key>rebasable-url</key>
+								<dict>
+									<key>base</key>
+									<string>workspace</string>
+									<key>payload</key>
+									<dict>
+										<key>relative-path</key>
+										<string>Gremo/Details.swift</string>
+									</dict>
+								</dict>
+							</dict>
+							<key>text-context</key>
+							<dict>
+								<key>focused</key>
+								<string>//                if #available(iOS 17, *) {
+</string>
+								<key>leading</key>
+								<string>            .onAppear {
+                viewModel.initializationPosition()
+</string>
+								<key>trailing</key>
+								<string>//                    CheckDetailsTip().invalidate(reason: .actionPerformed)
+//                }
+            }
+</string>
+							</dict>
+							<key>title</key>
+							<string>Tip：打開此頁面時不再顯示</string>
+							<key>type</key>
+							<string>bookmark</string>
+						</dict>
+						<dict>
+							<key>destination</key>
+							<dict>
+								<key>location-parameters</key>
+								<dict>
+									<key>EndingColumnNumber</key>
+									<string>0</string>
+									<key>EndingLineNumber</key>
+									<string>10</string>
+									<key>StartingColumnNumber</key>
+									<string>0</string>
+									<key>StartingLineNumber</key>
+									<string>9</string>
+									<key>Timestamp</key>
+									<string>723643962.017861</string>
+								</dict>
+								<key>rebasable-url</key>
+								<dict>
+									<key>base</key>
+									<string>workspace</string>
+									<key>payload</key>
+									<dict>
+										<key>relative-path</key>
+										<string>Gremo/ScoreCalculate.swift</string>
+									</dict>
+								</dict>
+							</dict>
+							<key>text-context</key>
+							<dict>
+								<key>focused</key>
+								<string>//import TipKit
+</string>
+								<key>leading</key>
+								<string>import SwiftUI
+import Foundation
+</string>
+								<key>trailing</key>
+								<string>////
+//@available(iOS 17, *)
+//struct NewFunctions: Tip {
+</string>
+							</dict>
+							<key>title</key>
+							<string>新功能的導覽</string>
+							<key>type</key>
+							<string>bookmark</string>
+						</dict>
+						<dict>
+							<key>destination</key>
+							<dict>
+								<key>location-parameters</key>
+								<dict>
+									<key>EndingColumnNumber</key>
+									<string>0</string>
+									<key>EndingLineNumber</key>
+									<string>10</string>
+									<key>StartingColumnNumber</key>
+									<string>0</string>
+									<key>StartingLineNumber</key>
+									<string>9</string>
+									<key>Timestamp</key>
+									<string>723643962.017844</string>
+								</dict>
+								<key>rebasable-url</key>
+								<dict>
+									<key>base</key>
+									<string>workspace</string>
+									<key>payload</key>
+									<dict>
+										<key>relative-path</key>
+										<string>Gremo/ScoreCalculate.swift</string>
+									</dict>
+								</dict>
+							</dict>
+							<key>text-context</key>
+							<dict>
+								<key>focused</key>
+								<string>//import TipKit
+</string>
+								<key>leading</key>
+								<string>import SwiftUI
+import Foundation
+</string>
+								<key>trailing</key>
+								<string>////
+//@available(iOS 17, *)
+//struct NewFunctions: Tip {
+</string>
+							</dict>
+							<key>title</key>
+							<string>提醒用戶還有一個頁面的按鈕在這裡</string>
+							<key>type</key>
+							<string>bookmark</string>
+						</dict>
+						<dict>
+							<key>destination</key>
+							<dict>
+								<key>location-parameters</key>
+								<dict>
+									<key>EndingColumnNumber</key>
+									<string>0</string>
+									<key>EndingLineNumber</key>
+									<string>10</string>
+									<key>StartingColumnNumber</key>
+									<string>0</string>
+									<key>StartingLineNumber</key>
+									<string>9</string>
+									<key>Timestamp</key>
+									<string>723643962.017797</string>
+								</dict>
+								<key>rebasable-url</key>
+								<dict>
+									<key>base</key>
+									<string>workspace</string>
+									<key>payload</key>
+									<dict>
+										<key>relative-path</key>
+										<string>Gremo/ScoreCalculate.swift</string>
+									</dict>
+								</dict>
+							</dict>
+							<key>text-context</key>
+							<dict>
+								<key>focused</key>
+								<string>//import TipKit
+</string>
+								<key>leading</key>
+								<string>import SwiftUI
+import Foundation
+</string>
+								<key>trailing</key>
+								<string>////
+//@available(iOS 17, *)
+//struct NewFunctions: Tip {
+</string>
+							</dict>
+							<key>title</key>
+							<string>用函式判斷是否能用Tip</string>
+							<key>type</key>
+							<string>bookmark</string>
+						</dict>
+						<dict>
+							<key>destination</key>
+							<dict>
+								<key>location-parameters</key>
+								<dict>
+									<key>EndingColumnNumber</key>
+									<string>0</string>
+									<key>EndingLineNumber</key>
+									<string>204</string>
+									<key>StartingColumnNumber</key>
+									<string>0</string>
+									<key>StartingLineNumber</key>
+									<string>203</string>
+									<key>Timestamp</key>
+									<string>723990654.730081</string>
+								</dict>
+								<key>rebasable-url</key>
+								<dict>
+									<key>base</key>
+									<string>workspace</string>
+									<key>payload</key>
+									<dict>
+										<key>relative-path</key>
+										<string>Gremo/ScoreCalculate.swift</string>
+									</dict>
+								</dict>
+							</dict>
+							<key>text-context</key>
+							<dict>
+								<key>focused</key>
+								<string>//                .customPopoverTip()
+</string>
+								<key>leading</key>
+								<string>                    }
+                }
+</string>
+								<key>trailing</key>
+								<string>                .frame(height: CGFloat(viewModel.subjects.info.filter { $0.isOn &amp;&amp; $0.subject.isAvailable }.count * 45) + 50.0)
+                .padding(.bottom, 16)
+                .onChange(of: focused) { newValue in
+</string>
+							</dict>
+							<key>title</key>
+							<string>要套用上述函式的地方</string>
+							<key>type</key>
+							<string>bookmark</string>
+						</dict>
+						<dict>
+							<key>destination</key>
+							<dict>
+								<key>location-parameters</key>
+								<dict>
+									<key>EndingColumnNumber</key>
+									<string>0</string>
+									<key>EndingLineNumber</key>
+									<string>146</string>
+									<key>StartingColumnNumber</key>
+									<string>0</string>
+									<key>StartingLineNumber</key>
+									<string>145</string>
+									<key>Timestamp</key>
+									<string>724075574.372631</string>
+								</dict>
+								<key>rebasable-url</key>
+								<dict>
+									<key>base</key>
+									<string>workspace</string>
+									<key>payload</key>
+									<dict>
+										<key>relative-path</key>
+										<string>Gremo/Summary.swift</string>
+									</dict>
+								</dict>
+							</dict>
+							<key>text-context</key>
+							<dict>
+								<key>focused</key>
+								<string>                    //.disabled(!info.isOn)
+</string>
+								<key>leading</key>
+								<string>                        .frame(minHeight: 37)
+                    }
+</string>
+								<key>trailing</key>
+								<string>                }
+                //}
+                //footer: {
+</string>
+							</dict>
+							<key>title</key>
+							<string>到7.0加入tip時，再用TipView來說明為何會無法使用</string>
+							<key>type</key>
+							<string>bookmark</string>
+						</dict>
+					</array>
+					<key>title</key>
+					<string>Tip</string>
+					<key>type</key>
+					<string>group</string>
+				</dict>
+				<dict>
+					<key>children</key>
+					<array/>
+					<key>title</key>
+					<string>CoreData</string>
+					<key>type</key>
+					<string>group</string>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>版本7預計加入</string>
+			<key>type</key>
+			<string>group</string>
+		</dict>
+		<dict>
+			<key>children</key>
+			<array>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>0</string>
+							<key>EndingLineNumber</key>
+							<string>89</string>
+							<key>StartingColumnNumber</key>
+							<string>30</string>
+							<key>StartingLineNumber</key>
+							<string>88</string>
+							<key>Timestamp</key>
+							<string>724167265.538512</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Gremo/View/ScoreCalculateView.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>
+</string>
+						<key>leading</key>
+						<string>                .padding(.leading, 10)
+                .padding(2)
+                .font(.title2)</string>
+						<key>trailing</key>
+						<string>                .padding(.top, 2)
+                .foregroundColor(textColor)
+        }
+</string>
+					</dict>
+					<key>title</key>
+					<string>把字體改成.title3</string>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>UI</string>
+			<key>type</key>
+			<string>group</string>
+		</dict>
+		<dict>
+			<key>children</key>
+			<array>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>0</string>
+							<key>EndingLineNumber</key>
+							<string>160</string>
+							<key>StartingColumnNumber</key>
+							<string>0</string>
+							<key>StartingLineNumber</key>
+							<string>159</string>
+							<key>Timestamp</key>
+							<string>724170744.502584</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Gremo/ViewModel/SummaryViewModel.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>is-complete</key>
+					<true/>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>    func compareScore(key: String) -&gt; Double {
+</string>
+						<key>leading</key>
+						<string>    }
+    
+</string>
+						<key>trailing</key>
+						<string>        var scores: [String] = []
+        for i in 0..&lt;6 {
+            let score = key == "Average" ? String(userDefault.double(forKey: "\(key)Score\(i + 1)")): userDefault.string(forKey: "\(key)Score\(i + 1)") ?? ""
+</string>
+					</dict>
+					<key>title</key>
+					<string>無法辨識是否已輸入過分數</string>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>0</string>
+							<key>EndingLineNumber</key>
+							<string>117</string>
+							<key>StartingColumnNumber</key>
+							<string>0</string>
+							<key>StartingLineNumber</key>
+							<string>116</string>
+							<key>Timestamp</key>
+							<string>723915572.754378</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Gremo/Details.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>                        ForEach(viewModel.subjectInfo) { info in
+</string>
+						<key>leading</key>
+						<string>                    
+                    Chart {
+</string>
+						<key>trailing</key>
+						<string>                            let isHasWeighted = viewModel.isHasWeighted
+                            
+                            BarMark(x: .value("score", info.calculateScore(isHasWeighted: isHasWeighted)),
+</string>
+					</dict>
+					<key>title</key>
+					<string>沒開啟的科目不應該出現在圖表上</string>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>0</string>
+							<key>EndingLineNumber</key>
+							<string>22</string>
+							<key>StartingColumnNumber</key>
+							<string>27</string>
+							<key>StartingLineNumber</key>
+							<string>21</string>
+							<key>Timestamp</key>
+							<string>724087036.586355</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Gremo/ViewModel/SummaryViewModel.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>is-complete</key>
+					<true/>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>
+</string>
+						<key>leading</key>
+						<string>    }
+
+    func initializeData() {</string>
+						<key>trailing</key>
+						<string>        for info in globalViewModel.info where info.subject.isAvailable {
+            if userDefault.object(forKey: "is\(info.key)InChart") == nil {
+                userDefault.set(info.subject == .social ? false: true, forKey: "is\(info.key)InChart")
+</string>
+					</dict>
+					<key>title</key>
+					<string>圖表在開啟第二次時會連接頭尾</string>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>bugs</string>
+			<key>type</key>
+			<string>group</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>86</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>85</string>
+					<key>Timestamp</key>
+					<string>724167320.281708</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>Gremo/View/ScoreCalculateView.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>            Text(String(format: "\(label)平均：%.2f", value))
+</string>
+				<key>leading</key>
+				<string>                .frame(width: 25)
+                .foregroundColor(color)
+</string>
+				<key>trailing</key>
+				<string>                .padding(.leading, 10)
+                .padding(2)
+                .font(.title2)
+</string>
+			</dict>
+			<key>title</key>
+			<string>前面改粗體</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+	</array>
+</dict>
+</plist>

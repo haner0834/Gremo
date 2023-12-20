@@ -1,0 +1,832 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4218DC0D2AAD7E080029D759 /* ScoreCalculateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4218DC0C2AAD7E070029D759 /* ScoreCalculateViewModel.swift */; };
+		421E22922A409C1A00D4654D /* GremoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E22912A409C1A00D4654D /* GremoApp.swift */; };
+		421E22942A409C1A00D4654D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E22932A409C1A00D4654D /* Persistence.swift */; };
+		421E22972A409C1A00D4654D /* Gremo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 421E22952A409C1A00D4654D /* Gremo.xcdatamodeld */; };
+		421E22992A409C1A00D4654D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E22982A409C1A00D4654D /* ContentView.swift */; };
+		421E229B2A409C1B00D4654D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 421E229A2A409C1B00D4654D /* Assets.xcassets */; };
+		421E229F2A409C1B00D4654D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 421E229E2A409C1B00D4654D /* Preview Assets.xcassets */; };
+		421E22A92A409C1B00D4654D /* GremoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E22A82A409C1B00D4654D /* GremoTests.swift */; };
+		421E22B32A409C1B00D4654D /* GremoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E22B22A409C1B00D4654D /* GremoUITests.swift */; };
+		421E22B52A409C1B00D4654D /* GremoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E22B42A409C1B00D4654D /* GremoUITestsLaunchTests.swift */; };
+		422761942AC87BE100D24604 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422761932AC87BE100D24604 /* DetailsViewModel.swift */; };
+		422761962AC87DDC00D24604 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422761952AC87DDC00D24604 /* DataBase.swift */; };
+		425E494C2B03C2070019AB36 /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425E494B2B03C2070019AB36 /* GlobalViewModel.swift */; };
+		425E494E2B0514AB0019AB36 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425E494D2B0514AB0019AB36 /* DetailsView.swift */; };
+		425E49502B0515780019AB36 /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425E494F2B0515780019AB36 /* DetailsModel.swift */; };
+		425E49522B08EE840019AB36 /* GlobalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425E49512B08EE840019AB36 /* GlobalModel.swift */; };
+		425E49542B0A5B820019AB36 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425E49532B0A5B820019AB36 /* SettingViewModel.swift */; };
+		425E49562B0E55330019AB36 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425E49552B0E55330019AB36 /* SettingView.swift */; };
+		425E49582B0E564C0019AB36 /* SubjectChooseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425E49572B0E564C0019AB36 /* SubjectChooseViewModel.swift */; };
+		4264C28C2A4B37EE00BBE938 /* timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4264C28B2A4B37EE00BBE938 /* timer.swift */; };
+		4264C28E2A4C637700BBE938 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4264C28D2A4C637700BBE938 /* Details.swift */; };
+		4264C2922A55987400BBE938 /* ScoreCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4264C2912A55987400BBE938 /* ScoreCalculate.swift */; };
+		426CD37D2B24827600C2AED4 /* SummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426CD37C2B24827600C2AED4 /* SummaryViewModel.swift */; };
+		426CD37F2B25BDA900C2AED4 /* SummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426CD37E2B25BDA900C2AED4 /* SummaryModel.swift */; };
+		42952ABC2A70068300E82D4C /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42952ABB2A70068300E82D4C /* Setting.swift */; };
+		42BA16072B2613BF00772802 /* Summary_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA16062B2613BF00772802 /* Summary_old.swift */; };
+		42BA16092B28B48200772802 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA16082B28B48200772802 /* SummaryView.swift */; };
+		42BA16432B316D2000772802 /* CustomToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA16422B316D2000772802 /* CustomToolBar.swift */; };
+		42BA16452B32E3FE00772802 /* ScoreReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA16442B32E3FE00772802 /* ScoreReview.swift */; };
+		42BA6A2C2A7AA545005B2585 /* subjectChoose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA6A2B2A7AA545005B2585 /* subjectChoose.swift */; };
+		42BE02FA2A95995100BCCEE2 /* LinechartSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE02F92A95995100BCCEE2 /* LinechartSetting.swift */; };
+		42BE02FC2A9B0F1E00BCCEE2 /* WeightedSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE02FB2A9B0F1E00BCCEE2 /* WeightedSetting.swift */; };
+		42BFFBA22A8876EB0026C27A /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFFBA12A8876EB0026C27A /* Summary.swift */; };
+		42BFFBA42A8BABC20026C27A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42BFFBA32A8BABC20026C27A /* Launch Screen.storyboard */; };
+		42BFFBA62A8BD1150026C27A /* subjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFFBA52A8BD1150026C27A /* subjectDetails.swift */; };
+		42C9E5B82AFBCEC70006370A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9E5B72AFBCEC60006370A /* Home.swift */; };
+		42CAFF3D2AE61CBA001D88F8 /* ScoreCalculateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAFF3C2AE61CBA001D88F8 /* ScoreCalculateModel.swift */; };
+		42CAFF402AE67848001D88F8 /* ScoreCalculateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAFF3F2AE67848001D88F8 /* ScoreCalculateView.swift */; };
+		42D432EE2A6CBB9000882FC2 /* scoreRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D432ED2A6CBB9000882FC2 /* scoreRatio.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		421E22A52A409C1B00D4654D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 421E22862A409C1A00D4654D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 421E228D2A409C1A00D4654D;
+			remoteInfo = Gremo;
+		};
+		421E22AF2A409C1B00D4654D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 421E22862A409C1A00D4654D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 421E228D2A409C1A00D4654D;
+			remoteInfo = Gremo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4218DC0C2AAD7E070029D759 /* ScoreCalculateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculateViewModel.swift; sourceTree = "<group>"; };
+		421E228E2A409C1A00D4654D /* Gremo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gremo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		421E22912A409C1A00D4654D /* GremoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GremoApp.swift; sourceTree = "<group>"; };
+		421E22932A409C1A00D4654D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		421E22962A409C1A00D4654D /* Gremo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gremo.xcdatamodel; sourceTree = "<group>"; };
+		421E22982A409C1A00D4654D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		421E229A2A409C1B00D4654D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		421E229C2A409C1B00D4654D /* Gremo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gremo.entitlements; sourceTree = "<group>"; };
+		421E229E2A409C1B00D4654D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		421E22A42A409C1B00D4654D /* GremoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GremoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		421E22A82A409C1B00D4654D /* GremoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GremoTests.swift; sourceTree = "<group>"; };
+		421E22AE2A409C1B00D4654D /* GremoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GremoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		421E22B22A409C1B00D4654D /* GremoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GremoUITests.swift; sourceTree = "<group>"; };
+		421E22B42A409C1B00D4654D /* GremoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GremoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		422761932AC87BE100D24604 /* DetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsViewModel.swift; path = Gremo/DetailsViewModel.swift; sourceTree = SOURCE_ROOT; };
+		422761952AC87DDC00D24604 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		425E494B2B03C2070019AB36 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
+		425E494D2B0514AB0019AB36 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		425E494F2B0515780019AB36 /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
+		425E49512B08EE840019AB36 /* GlobalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalModel.swift; sourceTree = "<group>"; };
+		425E49532B0A5B820019AB36 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		425E49552B0E55330019AB36 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		425E49572B0E564C0019AB36 /* SubjectChooseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectChooseViewModel.swift; sourceTree = "<group>"; };
+		4264C28B2A4B37EE00BBE938 /* timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timer.swift; sourceTree = "<group>"; };
+		4264C28D2A4C637700BBE938 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
+		4264C2912A55987400BBE938 /* ScoreCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculate.swift; sourceTree = "<group>"; };
+		426CD37C2B24827600C2AED4 /* SummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewModel.swift; sourceTree = "<group>"; };
+		426CD37E2B25BDA900C2AED4 /* SummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryModel.swift; sourceTree = "<group>"; };
+		42952ABB2A70068300E82D4C /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		42BA16062B2613BF00772802 /* Summary_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary_old.swift; sourceTree = "<group>"; };
+		42BA16082B28B48200772802 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		42BA16422B316D2000772802 /* CustomToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolBar.swift; sourceTree = "<group>"; };
+		42BA16442B32E3FE00772802 /* ScoreReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreReview.swift; sourceTree = "<group>"; };
+		42BA6A2B2A7AA545005B2585 /* subjectChoose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subjectChoose.swift; sourceTree = "<group>"; };
+		42BE02F92A95995100BCCEE2 /* LinechartSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinechartSetting.swift; sourceTree = "<group>"; };
+		42BE02FB2A9B0F1E00BCCEE2 /* WeightedSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightedSetting.swift; sourceTree = "<group>"; };
+		42BFFBA12A8876EB0026C27A /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
+		42BFFBA32A8BABC20026C27A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		42BFFBA52A8BD1150026C27A /* subjectDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subjectDetails.swift; sourceTree = "<group>"; };
+		42C9E5B72AFBCEC60006370A /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		42CAFF3C2AE61CBA001D88F8 /* ScoreCalculateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculateModel.swift; sourceTree = "<group>"; };
+		42CAFF3F2AE67848001D88F8 /* ScoreCalculateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculateView.swift; sourceTree = "<group>"; };
+		42D432ED2A6CBB9000882FC2 /* scoreRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoreRatio.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		421E228B2A409C1A00D4654D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		421E22A12A409C1B00D4654D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		421E22AB2A409C1B00D4654D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4218DC0B2AAD72980029D759 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				422761932AC87BE100D24604 /* DetailsViewModel.swift */,
+				4218DC0C2AAD7E070029D759 /* ScoreCalculateViewModel.swift */,
+				425E494B2B03C2070019AB36 /* GlobalViewModel.swift */,
+				425E49532B0A5B820019AB36 /* SettingViewModel.swift */,
+				425E49572B0E564C0019AB36 /* SubjectChooseViewModel.swift */,
+				426CD37C2B24827600C2AED4 /* SummaryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		421E22852A409C1A00D4654D = {
+			isa = PBXGroup;
+			children = (
+				421E22902A409C1A00D4654D /* Gremo */,
+				421E22A72A409C1B00D4654D /* GremoTests */,
+				421E22B12A409C1B00D4654D /* GremoUITests */,
+				421E228F2A409C1A00D4654D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		421E228F2A409C1A00D4654D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				421E228E2A409C1A00D4654D /* Gremo.app */,
+				421E22A42A409C1B00D4654D /* GremoTests.xctest */,
+				421E22AE2A409C1B00D4654D /* GremoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		421E22902A409C1A00D4654D /* Gremo */ = {
+			isa = PBXGroup;
+			children = (
+				421E22912A409C1A00D4654D /* GremoApp.swift */,
+				421E22982A409C1A00D4654D /* ContentView.swift */,
+				425E494A2B00AA700019AB36 /* main */,
+				42CAFF3B2AE61C5C001D88F8 /* Model */,
+				4218DC0B2AAD72980029D759 /* ViewModel */,
+				42CAFF3E2AE677FC001D88F8 /* View */,
+				42BA16462B332AAC00772802 /* Unuse */,
+				421E229A2A409C1B00D4654D /* Assets.xcassets */,
+				42BFFBA32A8BABC20026C27A /* Launch Screen.storyboard */,
+				421E229C2A409C1B00D4654D /* Gremo.entitlements */,
+				421E22952A409C1A00D4654D /* Gremo.xcdatamodeld */,
+				421E229D2A409C1B00D4654D /* Preview Content */,
+			);
+			path = Gremo;
+			sourceTree = "<group>";
+		};
+		421E229D2A409C1B00D4654D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				421E229E2A409C1B00D4654D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		421E22A72A409C1B00D4654D /* GremoTests */ = {
+			isa = PBXGroup;
+			children = (
+				421E22A82A409C1B00D4654D /* GremoTests.swift */,
+			);
+			path = GremoTests;
+			sourceTree = "<group>";
+		};
+		421E22B12A409C1B00D4654D /* GremoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				421E22B22A409C1B00D4654D /* GremoUITests.swift */,
+				421E22B42A409C1B00D4654D /* GremoUITestsLaunchTests.swift */,
+			);
+			path = GremoUITests;
+			sourceTree = "<group>";
+		};
+		425E494A2B00AA700019AB36 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				42C9E5B72AFBCEC60006370A /* Home.swift */,
+				4264C2912A55987400BBE938 /* ScoreCalculate.swift */,
+				4264C28D2A4C637700BBE938 /* Details.swift */,
+				42BFFBA12A8876EB0026C27A /* Summary.swift */,
+				42BFFBA52A8BD1150026C27A /* subjectDetails.swift */,
+				42BE02F92A95995100BCCEE2 /* LinechartSetting.swift */,
+				42952ABB2A70068300E82D4C /* Setting.swift */,
+				42BA6A2B2A7AA545005B2585 /* subjectChoose.swift */,
+				42BE02FB2A9B0F1E00BCCEE2 /* WeightedSetting.swift */,
+				42BA16442B32E3FE00772802 /* ScoreReview.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		42BA16412B316CF200772802 /* CustomToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				42BA16422B316D2000772802 /* CustomToolBar.swift */,
+			);
+			path = CustomToolBar;
+			sourceTree = "<group>";
+		};
+		42BA16462B332AAC00772802 /* Unuse */ = {
+			isa = PBXGroup;
+			children = (
+				42BA16062B2613BF00772802 /* Summary_old.swift */,
+				422761952AC87DDC00D24604 /* DataBase.swift */,
+				4264C28B2A4B37EE00BBE938 /* timer.swift */,
+				42D432ED2A6CBB9000882FC2 /* scoreRatio.swift */,
+				421E22932A409C1A00D4654D /* Persistence.swift */,
+			);
+			path = Unuse;
+			sourceTree = "<group>";
+		};
+		42CAFF3B2AE61C5C001D88F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42CAFF3C2AE61CBA001D88F8 /* ScoreCalculateModel.swift */,
+				425E494F2B0515780019AB36 /* DetailsModel.swift */,
+				425E49512B08EE840019AB36 /* GlobalModel.swift */,
+				426CD37E2B25BDA900C2AED4 /* SummaryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42CAFF3E2AE677FC001D88F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42BA16412B316CF200772802 /* CustomToolBar */,
+				42CAFF3F2AE67848001D88F8 /* ScoreCalculateView.swift */,
+				425E494D2B0514AB0019AB36 /* DetailsView.swift */,
+				425E49552B0E55330019AB36 /* SettingView.swift */,
+				42BA16082B28B48200772802 /* SummaryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		421E228D2A409C1A00D4654D /* Gremo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 421E22B82A409C1B00D4654D /* Build configuration list for PBXNativeTarget "Gremo" */;
+			buildPhases = (
+				421E228A2A409C1A00D4654D /* Sources */,
+				421E228B2A409C1A00D4654D /* Frameworks */,
+				421E228C2A409C1A00D4654D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gremo;
+			productName = Gremo;
+			productReference = 421E228E2A409C1A00D4654D /* Gremo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		421E22A32A409C1B00D4654D /* GremoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 421E22BB2A409C1B00D4654D /* Build configuration list for PBXNativeTarget "GremoTests" */;
+			buildPhases = (
+				421E22A02A409C1B00D4654D /* Sources */,
+				421E22A12A409C1B00D4654D /* Frameworks */,
+				421E22A22A409C1B00D4654D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				421E22A62A409C1B00D4654D /* PBXTargetDependency */,
+			);
+			name = GremoTests;
+			productName = GremoTests;
+			productReference = 421E22A42A409C1B00D4654D /* GremoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		421E22AD2A409C1B00D4654D /* GremoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 421E22BE2A409C1B00D4654D /* Build configuration list for PBXNativeTarget "GremoUITests" */;
+			buildPhases = (
+				421E22AA2A409C1B00D4654D /* Sources */,
+				421E22AB2A409C1B00D4654D /* Frameworks */,
+				421E22AC2A409C1B00D4654D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				421E22B02A409C1B00D4654D /* PBXTargetDependency */,
+			);
+			name = GremoUITests;
+			productName = GremoUITests;
+			productReference = 421E22AE2A409C1B00D4654D /* GremoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		421E22862A409C1A00D4654D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				CLASSPREFIX = "";
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					421E228D2A409C1A00D4654D = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					421E22A32A409C1B00D4654D = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 421E228D2A409C1A00D4654D;
+					};
+					421E22AD2A409C1B00D4654D = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 421E228D2A409C1A00D4654D;
+					};
+				};
+			};
+			buildConfigurationList = 421E22892A409C1A00D4654D /* Build configuration list for PBXProject "Gremo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = "zh-Hant";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				"zh-Hant",
+				Base,
+			);
+			mainGroup = 421E22852A409C1A00D4654D;
+			productRefGroup = 421E228F2A409C1A00D4654D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				421E228D2A409C1A00D4654D /* Gremo */,
+				421E22A32A409C1B00D4654D /* GremoTests */,
+				421E22AD2A409C1B00D4654D /* GremoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		421E228C2A409C1A00D4654D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42BFFBA42A8BABC20026C27A /* Launch Screen.storyboard in Resources */,
+				421E229F2A409C1B00D4654D /* Preview Assets.xcassets in Resources */,
+				421E229B2A409C1B00D4654D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		421E22A22A409C1B00D4654D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		421E22AC2A409C1B00D4654D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		421E228A2A409C1A00D4654D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42CAFF402AE67848001D88F8 /* ScoreCalculateView.swift in Sources */,
+				42952ABC2A70068300E82D4C /* Setting.swift in Sources */,
+				425E49522B08EE840019AB36 /* GlobalModel.swift in Sources */,
+				426CD37D2B24827600C2AED4 /* SummaryViewModel.swift in Sources */,
+				425E49542B0A5B820019AB36 /* SettingViewModel.swift in Sources */,
+				421E22972A409C1A00D4654D /* Gremo.xcdatamodeld in Sources */,
+				425E494C2B03C2070019AB36 /* GlobalViewModel.swift in Sources */,
+				425E49502B0515780019AB36 /* DetailsModel.swift in Sources */,
+				426CD37F2B25BDA900C2AED4 /* SummaryModel.swift in Sources */,
+				421E22922A409C1A00D4654D /* GremoApp.swift in Sources */,
+				4264C28E2A4C637700BBE938 /* Details.swift in Sources */,
+				42BA16432B316D2000772802 /* CustomToolBar.swift in Sources */,
+				422761962AC87DDC00D24604 /* DataBase.swift in Sources */,
+				4264C28C2A4B37EE00BBE938 /* timer.swift in Sources */,
+				42D432EE2A6CBB9000882FC2 /* scoreRatio.swift in Sources */,
+				42BE02FA2A95995100BCCEE2 /* LinechartSetting.swift in Sources */,
+				42BE02FC2A9B0F1E00BCCEE2 /* WeightedSetting.swift in Sources */,
+				42BFFBA62A8BD1150026C27A /* subjectDetails.swift in Sources */,
+				4264C2922A55987400BBE938 /* ScoreCalculate.swift in Sources */,
+				42C9E5B82AFBCEC70006370A /* Home.swift in Sources */,
+				421E22992A409C1A00D4654D /* ContentView.swift in Sources */,
+				42BA16092B28B48200772802 /* SummaryView.swift in Sources */,
+				425E494E2B0514AB0019AB36 /* DetailsView.swift in Sources */,
+				425E49582B0E564C0019AB36 /* SubjectChooseViewModel.swift in Sources */,
+				4218DC0D2AAD7E080029D759 /* ScoreCalculateViewModel.swift in Sources */,
+				425E49562B0E55330019AB36 /* SettingView.swift in Sources */,
+				42BA16072B2613BF00772802 /* Summary_old.swift in Sources */,
+				42BA16452B32E3FE00772802 /* ScoreReview.swift in Sources */,
+				42CAFF3D2AE61CBA001D88F8 /* ScoreCalculateModel.swift in Sources */,
+				42BA6A2C2A7AA545005B2585 /* subjectChoose.swift in Sources */,
+				42BFFBA22A8876EB0026C27A /* Summary.swift in Sources */,
+				421E22942A409C1A00D4654D /* Persistence.swift in Sources */,
+				422761942AC87BE100D24604 /* DetailsViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		421E22A02A409C1B00D4654D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				421E22A92A409C1B00D4654D /* GremoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		421E22AA2A409C1B00D4654D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				421E22B32A409C1B00D4654D /* GremoUITests.swift in Sources */,
+				421E22B52A409C1B00D4654D /* GremoUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		421E22A62A409C1B00D4654D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 421E228D2A409C1A00D4654D /* Gremo */;
+			targetProxy = 421E22A52A409C1B00D4654D /* PBXContainerItemProxy */;
+		};
+		421E22B02A409C1B00D4654D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 421E228D2A409C1A00D4654D /* Gremo */;
+			targetProxy = 421E22AF2A409C1B00D4654D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		421E22B62A409C1B00D4654D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		421E22B72A409C1B00D4654D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		421E22B92A409C1B00D4654D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Gremo/Gremo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Gremo/Preview Content\"";
+				DEVELOPMENT_TEAM = C47PSR6843;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 6.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-.Gremo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		421E22BA2A409C1B00D4654D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Gremo/Gremo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Gremo/Preview Content\"";
+				DEVELOPMENT_TEAM = C47PSR6843;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 6.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-.Gremo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		421E22BC2A409C1B00D4654D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = C47PSR6843;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-.GremoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gremo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Gremo";
+			};
+			name = Debug;
+		};
+		421E22BD2A409C1B00D4654D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = C47PSR6843;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-.GremoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gremo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Gremo";
+			};
+			name = Release;
+		};
+		421E22BF2A409C1B00D4654D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = C47PSR6843;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-.GremoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gremo;
+			};
+			name = Debug;
+		};
+		421E22C02A409C1B00D4654D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = C47PSR6843;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-.GremoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gremo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		421E22892A409C1A00D4654D /* Build configuration list for PBXProject "Gremo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				421E22B62A409C1B00D4654D /* Debug */,
+				421E22B72A409C1B00D4654D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		421E22B82A409C1B00D4654D /* Build configuration list for PBXNativeTarget "Gremo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				421E22B92A409C1B00D4654D /* Debug */,
+				421E22BA2A409C1B00D4654D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		421E22BB2A409C1B00D4654D /* Build configuration list for PBXNativeTarget "GremoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				421E22BC2A409C1B00D4654D /* Debug */,
+				421E22BD2A409C1B00D4654D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		421E22BE2A409C1B00D4654D /* Build configuration list for PBXNativeTarget "GremoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				421E22BF2A409C1B00D4654D /* Debug */,
+				421E22C02A409C1B00D4654D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		421E22952A409C1A00D4654D /* Gremo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				421E22962A409C1A00D4654D /* Gremo.xcdatamodel */,
+			);
+			currentVersion = 421E22962A409C1A00D4654D /* Gremo.xcdatamodel */;
+			path = Gremo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 421E22862A409C1A00D4654D /* Project object */;
+}
