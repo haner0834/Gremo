@@ -33,8 +33,6 @@ struct ScoreReview: View {
                             .rotationEffect(.degrees(90))
                     }
                 }
-                
-                
             }
             .padding()
         }
