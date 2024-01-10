@@ -247,37 +247,39 @@ class ScoreCalculateViewModel: ObservableObject {
         }
     }
     
+    fileprivate func processFirstUse() {
+        //取得儲存的分數
+        for i in 0..<subjects.info.count {
+            //要和外部的subjectScoreItem溝通，需要用到i來追蹤循環次數並傳回應改變項
+            let key = subjects.info[i].key
+            if let score = userDefault.string(forKey: "\(key)Score\(scope + 1)") {
+                //排除nil的可能
+                subjects.info[i].score = score
+            }
+        }
+        
+        if userDefault.object(forKey: "heightColor") == nil {
+            userDefault.set("green", forKey: "heightColor")
+        }
+        
+        if userDefault.object(forKey: "lowColor") == nil {
+            userDefault.set("red", forKey: "lowColor")
+        }
+        
+        if userDefault.object(forKey: "heightScore") == nil {
+            userDefault.set(80, forKey: "heightScore")
+        }
+        
+        if userDefault.object(forKey: "lowScore") == nil {
+            userDefault.set(60, forKey: "lowScore")
+        }
+    }
+    
     func createInitialValue() {
         let isFirstUse = userDefault.object(forKey: "isFirstUse") == nil || userDefault.bool(forKey: "isFirstUse")
         
         if isFirstUse {
-            
-            //取得儲存的分數
-            for i in 0..<subjects.info.count {
-                //要和外部的subjectScoreItem溝通，需要用到i來追蹤循環次數並傳回應改變項
-                let key = subjects.info[i].key
-                if let score = userDefault.string(forKey: "\(key)Score\(scope + 1)") {
-                    //排除nil的可能
-                    subjects.info[i].score = score
-                }
-            }
-            
-            if userDefault.object(forKey: "heightColor") == nil {
-                userDefault.set("green", forKey: "heightColor")
-            }
-            
-            if userDefault.object(forKey: "lowColor") == nil {
-                userDefault.set("red", forKey: "lowColor")
-            }
-            
-            if userDefault.object(forKey: "heightScore") == nil {
-                userDefault.set(80, forKey: "heightScore")
-            }
-            
-            if userDefault.object(forKey: "lowScore") == nil {
-                userDefault.set(60, forKey: "lowScore")
-            }
-            
+            processFirstUse()
         }else {
             userDefault.set(false, forKey: "isFirstUse")
         }

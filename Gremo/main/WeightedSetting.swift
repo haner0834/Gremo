@@ -60,11 +60,11 @@ struct CustomSlider: View {
                 var isAvailalbe: Bool {
                     switch filter {
                     case .arts:
-                        return info.subject.isArtsSubject && info.subject.isAvailable
+                        return info.subject.isArtsSubject
                     case .science:
-                        return info.subject.isScienceSubject && info.subject.isAvailable
+                        return info.subject.isScienceSubject
                     case .social:
-                        return info.subject.isSocialSubject && info.subject.isAvailable
+                        return info.subject.isSocialSubject
                     default:
                         return false
                     }

@@ -7,60 +7,8 @@
 
 import SwiftUI
 import Foundation
-//import TipKit
-////
-//@available(iOS 17, *)
-//struct NewFunctions: Tip {
-//    static let newFunctionEvent = Event(id: "newFunctionEvent")
-//    
-//    var title: Text {
-//        Text("new function")
-//    }
-//    
-//    var message: Text? {
-//        Text("there's weighted of subject beside the text field")
-//    }
-//    
-//    var image: Image? {
-//        Image(systemName: "star.circle.fill")
-//    }
-//
-//    var rules: [Rule] {
-//        #Rule(Self.newFunctionEvent) { event in
-//            event.donations.count > 1
-//        }
-//    }
-//}
-//
-//@available(iOS 17, *)
-//struct CheckDetailsTip: Tip {
-//    static let checkDetailsEvent = Event(id: "checkDetailsEvent")
-//    
-//    var title: Text {
-//        Text("check ur score details")
-//    }
-//    
-//    var message: Text? {
-//        Text("there's chart with ur score")
-//    }
-//    
-////    var rules: [Rule] {
-////        #Rule(Self.checkDetailsEvent) { event in
-////            event.donations.count == 0
-////        }
-////    }
-//}
-//
-//
-//extension View {
-//    func customPopoverTip() -> some View {
-//        if #available(iOS 17, *) {
-//            return self.popoverTip(NewFunctions())
-//        }else {
-//           return self
-//        }
-//    }
-//}
+import TipKit
+
 
 struct ScoreCalculate: View {
     @EnvironmentObject var globalViewModel: GremoViewModel
@@ -78,15 +26,19 @@ struct ScoreCalculate: View {
     
     @State private var columns: [GridItem] = Array(repeating: GridItem(.flexible()), count: 3)
     
+    let LinearColor: [Color] = [
+        Color(red: 0.615, green: 0.737, blue: 0.997),
+        Color(red: 0.785, green: 0.662, blue: 0.999),
+        Color(hue: 0.766, saturation: 0.367, brightness: 0.983)
+    ]
+    
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 HStack {
                     
-                    LinearGradient(colors: [Color(red: 0.615, green: 0.737, blue: 0.997),
-                                            Color(hue: 0.766, saturation: 0.367, brightness: 0.983)
-                                           ],
+                    LinearGradient(colors: LinearColor,
                                    startPoint: .leading,
                                    endPoint: .trailing)
                     .frame(width: 107, height: 50)
@@ -106,33 +58,33 @@ struct ScoreCalculate: View {
                     Spacer()
                     
                     
-//                    if #available(iOS 17, *) {
+                    if #available(iOS 17, *) {
 
-                    NavigationLink {
-                        Details(viewModel: DetailsViewModel(globalViewModel: globalViewModel))
-                    } label: {
-                        Image(systemName: "chart.bar.fill")
-                            .font(.title2)
-                            .padding(7)
-                            .padding(.vertical, 4)
-                            .background(Color.accentColor.opacity(0.3))
-                            .cornerRadius(25)
+                        NavigationLink {
+                            Details(viewModel: DetailsViewModel(globalViewModel: globalViewModel))
+                        } label: {
+                            Image(systemName: "chart.bar.fill")
+                                .font(.title2)
+                                .padding(7)
+                                .padding(.vertical, 4)
+                                .background(Color.accentColor.opacity(0.3))
+                                .cornerRadius(25)
+                        }
+                        .padding(.trailing, 20)
+                        .popoverTip(CheckDetailsTip())
+                    }else {
+                        NavigationLink {
+                            Details(viewModel: DetailsViewModel(globalViewModel: globalViewModel))
+                        } label: {
+                            Image(systemName: "chart.bar.fill")
+                                .font(.title2)
+                                .padding(7)
+                                .padding(.vertical, 4)
+                                .background(Color.accentColor.opacity(0.3))
+                                .cornerRadius(25)
+                        }
+                        .padding(.trailing, 20)
                     }
-                    .padding(.trailing, 20)
-//                        .popoverTip(CheckDetailsTip())
-//                    }else {
-//                        NavigationLink {
-//                            Details(viewModel: DetailsViewModel(globalViewModel: globalViewModel))
-//                        } label: {
-//                            Image(systemName: "chart.bar.fill")
-//                                .font(.title2)
-//                                .padding(7)
-//                                .padding(.vertical, 4)
-//                                .background(Color.accentColor.opacity(0.3))
-//                                .cornerRadius(25)
-//                        }
-//                        .padding(.trailing, 20)
-//                    }
                 }
                 
                 LazyVGrid(columns: columns) {
@@ -174,10 +126,9 @@ struct ScoreCalculate: View {
                         //用i來代表是因為ScoreEditor的score用的是Binding<String>，沒辦法用遍歷整個array的東東來表示
                         //‼️‼️‼️‼️不要再亂改了‼️‼️‼️‼️
                         let item = viewModel.subjects.info[i]
-                        let isAvailible = item.subject.isAvailable
                         let score = viewModel.subjects.info[i].score
                         
-                        if item.isOn && isAvailible {
+                        if item.isOn {
                             //我到7.0才有要把這些科目加進去：）
                             ScoreEditor(score: $globalViewModel.info[i].score,
                                         color: viewModel.textColor(score: Double(score) ?? 0, isAverage: false),
@@ -201,8 +152,8 @@ struct ScoreCalculate: View {
                         }
                     }
                 }
-//                .customPopoverTip()
-                .frame(height: CGFloat(viewModel.subjects.info.filter { $0.isOn && $0.subject.isAvailable }.count * 45) + 50.0)
+                .customPopoverTip()
+                .frame(height: CGFloat(viewModel.subjects.info.filter { $0.isOn }.count * 45) + 50.0)
                 .padding(.bottom, 16)
                 .onChange(of: focused) { newValue in
                     for (i, info) in globalViewModel.info.enumerated() where Double(info.score) ?? 0 > 100 {
@@ -215,7 +166,7 @@ struct ScoreCalculate: View {
                         Text(String(format: "總        分：%.0f", viewModel.subjects.totalScore))
                             .padding(.leading, 13)
                             .padding(.top, 2)
-                            .font(.title2)
+                            .font(.title3)
                         
 //                        Text("**總          分**：\(String(format: "%.0f", viewModel.subjects.totalScore))")
 //                            .padding(.leading, 13)
@@ -250,7 +201,7 @@ struct ScoreCalculate: View {
                     Text(String(format: "平  均  分：%.2f", viewModel.subjects.averageScores.total))
                         .padding(.leading, 10)
                         .padding(2)
-                        .font(.title2)
+                        .font(.title3)
                         .foregroundColor(viewModel.textColor(score: viewModel.subjects.averageScores.total))
                     
                     AverageText(label: "文科",
@@ -302,15 +253,15 @@ struct ScoreCalculate_Previews: PreviewProvider {
     static var previews: some View {
         ScoreCalculate(viewModel: ScoreCalculateViewModel(score: GremoViewModel()))
             .environmentObject(GremoViewModel())
-//            .task {
-//                if #available(iOS 17, *) {
-//                    try? Tips.resetDatastore()
-//                    try? Tips.configure([
-////                        .displayFrequency(.immediate),
-//                        .datastoreLocation(.applicationDefault)
-//                    ])
-//                }
-//            }
+            .task {
+                if #available(iOS 17, *) {
+                    try? Tips.resetDatastore()
+                    try? Tips.configure([
+//                        .displayFrequency(.immediate),
+                        .datastoreLocation(.applicationDefault)
+                    ])
+                }
+            }
         
         Home(viewModel: GremoViewModel())
 //            .task {

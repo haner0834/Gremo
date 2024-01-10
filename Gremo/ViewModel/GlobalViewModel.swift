@@ -30,10 +30,10 @@ class GremoViewModel: ObservableObject {
             .init(score: "", weighted: 5, subject: .chinese, isOn: true, color: chartColor(.lightBlue)),
             .init(score: "", weighted: 3, subject: .english, isOn: true, color: chartColor(.yellow)),
             .init(score: "", weighted: 4, subject: .math, isOn: true, color: chartColor(.green)),
-            .init(score: "", weighted: 0, subject: .chemistry, isOn: false, color: .black),
-            .init(score: "", weighted: 0, subject: .physic, isOn: false, color: .black),
-            .init(score: "", weighted: 1, subject: .biology, isOn: false, color: .black),
-            .init(score: "", weighted: 1, subject: .geology, isOn: false, color: .black),
+            .init(score: "", weighted: 1, subject: .chemistry, isOn: false, color: .black),
+            .init(score: "", weighted: 1, subject: .physic, isOn: false, color: .black),
+            .init(score: "", weighted: 1, subject: .biology, isOn: true, color: .black),
+            .init(score: "", weighted: 1, subject: .geology, isOn: true, color: .black),
             .init(score: "", weighted: 3, subject: .science, isOn: true, color: chartColor(.purpleBlue)),
             .init(score: "", weighted: 1, subject: .history, isOn: true, color: chartColor(.purple)),
             .init(score: "", weighted: 1, subject: .civics, isOn: true, color: chartColor(.orange)),
@@ -53,10 +53,10 @@ class GremoViewModel: ObservableObject {
             userDefault.set(true, forKey: "isWeeklyExamOpen")
         }
         
-        for i in 0..<info.count where info[i].subject.isAvailable {
+        for i in 0..<info.count {
             //取得儲存的加權分設定
             if let weighted = userDefault.object(forKey: "\(info[i].key)WeightedScore"){
-                //獲取資訊
+                //獲取資訊，儲存過就取用，沒儲存過就儲存初始數值
                 info[i].weighted = weighted as? Double ?? 0
             }else {
                 userDefault.set(info[i].weighted, forKey: "\(info[i].key)WeightedScore")
@@ -82,13 +82,13 @@ class GremoViewModel: ObservableObject {
     func readScoreData(scope: Int) {
         let keys: [String] = info.map { $0.key }
         
-        for (i, item) in keys.enumerated() {
-            if let score = userDefault.string(forKey: "\(item)Score\(scope + 1)") {
+        for (i, key) in keys.enumerated() {
+            if let score = userDefault.string(forKey: "\(key)Score\(scope + 1)") {
                 withAnimation {
                     info[i].score = score
                 }
             }else {
-                info[i].score = "error: can't find scope"
+                info[i].score = ""
             }
         }
     }
@@ -115,11 +115,6 @@ extension Subject {
     
     var isScienceSubject: Bool {
         self == .math || self == .chemistry || self == .physic || self == .biology || self == .geology || self == .science
-    }
-    
-    var isAvailable: Bool {
-        let isUnAvailible = self == .geology || self == .biology || self == .chemistry || self == .physic
-        return !isUnAvailible
     }
 }
 

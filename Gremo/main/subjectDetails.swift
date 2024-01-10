@@ -184,6 +184,7 @@ struct SubjectDetails: View {
 //    }
         .onAppear {
             var scores = [Count]()
+            totalScoreSummary = []
             for i in 0..<6 {
                 var examName: String {
                     let names = ["一週", "一段", "二週", "二段", "三週", "三段"]

@@ -167,9 +167,9 @@ struct Details: View {
             .navigationTitle("分數詳情")
             .onAppear {
                 viewModel.initializationPosition()
-//                if #available(iOS 17, *) {
-//                    CheckDetailsTip().invalidate(reason: .actionPerformed)
-//                }
+                if #available(iOS 17, *) {
+                    CheckDetailsTip().invalidate(reason: .actionPerformed)
+                }
             }
 //            .onDisappear {
 //                viewModel.globalViewModel.readScoreData(scope: 0)

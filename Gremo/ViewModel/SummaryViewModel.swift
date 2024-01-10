@@ -20,7 +20,7 @@ class SummaryViewModel: ObservableObject {
     }
 
     func initializeData() {
-        for info in globalViewModel.info where info.subject.isAvailable {
+        for info in globalViewModel.info {
             if userDefault.object(forKey: "is\(info.key)InChart") == nil {
                 userDefault.set(info.subject == .social ? false: true, forKey: "is\(info.key)InChart")
             }
@@ -32,45 +32,8 @@ class SummaryViewModel: ObservableObject {
         
         addScoreSummary("Average", subjectName: "平均", color: .accentColor)
         
-//        var scores = [Count]()
-//        let examNames = ["一週", "一段", "二週", "二段", "三週", "三段"]
-//        for i in 0..<6 {
-//            let examName = examNames[i]
-//            
-//            let score = UserDefaults.standard.double(forKey: "AverageScore\(i + 1)")
-//            if score > 0 {
-//                scores.append(.init(examName: examName, score: score))
-//            }
-//        }
-//        
-//        if scores.count != 0 {
-//            scoreSummary.append(
-//                .init(name: "平均",
-//                      value: scores,
-//                      color: .accentColor)
-//            )
-//        }
-        
-        for info in globalViewModel.info where info.isOn && info.subject.isAvailable && userDefault.bool(forKey: "is\(info.key)InChart") {
+        for info in globalViewModel.info where info.isOn && userDefault.bool(forKey: "is\(info.key)InChart") {
             addScoreSummary(info.key, subjectName: info.name, color: info.color)
-//            var scores = [Count]()
-//            let examNames = ["一週", "一段", "二週", "二段", "三週", "三段"]
-//            for i in 0..<6 {
-//                let examName = examNames[i]
-//                
-//                let score = UserDefaults.standard.double(forKey: "\(info.key)Score\(i + 1)")
-//                if score > 0 {
-//                    scores.append(.init(examName: examName, score: score))
-//                }
-//            }
-//            
-//            if scores.count != 0 {
-//                scoreSummary.append(
-//                    .init(name: info.name,
-//                          value: scores,
-//                          color: info.color)
-//                )
-//            }
         }
     }
     
@@ -96,6 +59,9 @@ class SummaryViewModel: ObservableObject {
     }
     
     func getAverage(key: String) -> Double {
+        let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
+        guard isSubjectOn else { return 0 }
+        
         var scores: [String] = []
         for i in 0..<6 {
             var score: String {
@@ -158,6 +124,9 @@ class SummaryViewModel: ObservableObject {
     }
     
     func compareScore(key: String) -> Double {
+        let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
+        guard isSubjectOn else { return 0 }
+        
         var scores: [String] = []
         for i in 0..<6 {
             let score = key == "Average" ? String(userDefault.double(forKey: "\(key)Score\(i + 1)")): userDefault.string(forKey: "\(key)Score\(i + 1)") ?? ""

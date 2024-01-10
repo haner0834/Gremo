@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Charts
+import TipKit
 
 struct Summary: View {
     
@@ -83,6 +84,10 @@ struct Summary: View {
                         }
                     }
                     
+                    if #available(iOS 17, *) {
+                        TipView(ShowWhyDisableTip())
+                    }
+                    
                     let key = "Average"
                     let comparedScore = viewModel.compareScore(key: key)
                     NavigationButton(average: viewModel.getAverage(key: key),
@@ -97,20 +102,16 @@ struct Summary: View {
                     ForEach(globalViewModel.info) { info in
                         let average = viewModel.getAverage(key: info.key)
                         let comparedScore = viewModel.compareScore(key: info.key)
-                        if info.isOn && info.subject.isAvailable {
-                            NavigationButton(average: average,
-                                             subjectName: info.name,
-                                             key: info.key,
-                                             imageName: viewModel.getImageName(comparedScore),
-                                             comparedScore: comparedScore,
-                                             textColor: viewModel.getImageColor(comparedScore))
-                            .frame(minHeight: 37)
-                        }
-                        //.disabled(!info.isOn)
+                        NavigationButton(average: average,
+                                         subjectName: info.name,
+                                         key: info.key,
+                                         imageName: viewModel.getImageName(comparedScore),
+                                         comparedScore: comparedScore,
+                                         textColor: viewModel.getImageColor(comparedScore))
+                        .frame(minHeight: 37)
+                        .disabled(!info.isOn)
+                        
                     }
-                } footer: {
-                    Label("未開啟的科目無法看詳情 :D", systemImage: "exclamationmark.circle.fill")
-                        .foregroundStyle(.yellow.opacity(0.7))
                 }
             }
             .listStyle(.inset)
@@ -127,8 +128,26 @@ struct Summary_Previews: PreviewProvider {
     static var previews: some View {
         Summary(viewModel: SummaryViewModel(globalViewModel: GremoViewModel()))
             .environmentObject(GremoViewModel())
+            .task {
+                if #available(iOS 17, *) {
+                    try? Tips.resetDatastore()
+                    try? Tips.configure([
+//                        .displayFrequency(.immediate),
+                        .datastoreLocation(.applicationDefault)
+                    ])
+                }
+            }
         
         Home(viewModel: GremoViewModel())
+            .task {
+                if #available(iOS 17, *) {
+                    try? Tips.resetDatastore()
+                    try? Tips.configure([
+//                        .displayFrequency(.immediate),
+                        .datastoreLocation(.applicationDefault)
+                    ])
+                }
+            }
         
     }
 }

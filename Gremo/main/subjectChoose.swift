@@ -23,7 +23,7 @@ struct subjectChoose: View {
             Section("文科") {
                 ForEach(0..<globalViewModel.info.count, id: \.self) { i in
                     let info = globalViewModel.info[i]
-                    if info.subject.isArtsSubject && info.subject.isAvailable {
+                    if info.subject.isArtsSubject {
                         Toggle(info.name, isOn: $globalViewModel.info[i].isOn)
                             .onChange(of: globalViewModel.info[i].isOn) { newValue in
                                 UserDefaults.standard.set(newValue, forKey: "is\(info.key)On")
@@ -35,7 +35,7 @@ struct subjectChoose: View {
             Section("數理科") {
                 ForEach(0..<globalViewModel.info.count, id: \.self) { i in
                     let info = globalViewModel.info[i]
-                    if info.subject.isScienceSubject && info.subject.isAvailable {
+                    if info.subject.isScienceSubject {
                         Toggle(info.name, isOn: $globalViewModel.info[i].isOn)
                             .onChange(of: globalViewModel.info[i].isOn) { newValue in
                                 UserDefaults.standard.set(newValue, forKey: "is\(info.key)On")
@@ -47,7 +47,7 @@ struct subjectChoose: View {
             Section("社會科") {
                 ForEach(0..<globalViewModel.info.count, id: \.self) { i in
                     let info = globalViewModel.info[i]
-                    if info.subject.isSocialSubject && info.subject.isAvailable {
+                    if info.subject.isSocialSubject {
                         Toggle(info.name, isOn: $globalViewModel.info[i].isOn)
                             .onChange(of: globalViewModel.info[i].isOn) { newValue in
                                 processSubjectOpen(i, newValue: newValue, key: info.key)

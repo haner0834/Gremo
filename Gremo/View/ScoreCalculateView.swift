@@ -86,7 +86,7 @@ struct AverageText: View {
             Text(String(format: "\(label)平均：%.2f", value))
                 .padding(.leading, 10)
                 .padding(2)
-                .font(.title2)
+                .font(.title3)
                 .padding(.top, 2)
                 .foregroundColor(textColor)
         }

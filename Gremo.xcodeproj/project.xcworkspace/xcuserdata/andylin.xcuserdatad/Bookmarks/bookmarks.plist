@@ -37,6 +37,8 @@
 									</dict>
 								</dict>
 							</dict>
+							<key>is-complete</key>
+							<true/>
 							<key>text-context</key>
 							<dict>
 								<key>focused</key>
@@ -84,6 +86,8 @@ import Foundation
 									</dict>
 								</dict>
 							</dict>
+							<key>is-complete</key>
+							<true/>
 							<key>text-context</key>
 							<dict>
 								<key>focused</key>
@@ -131,6 +135,8 @@ import Foundation
 									</dict>
 								</dict>
 							</dict>
+							<key>is-complete</key>
+							<true/>
 							<key>text-context</key>
 							<dict>
 								<key>focused</key>
@@ -178,6 +184,8 @@ import Foundation
 									</dict>
 								</dict>
 							</dict>
+							<key>is-complete</key>
+							<true/>
 							<key>text-context</key>
 							<dict>
 								<key>focused</key>
@@ -225,6 +233,8 @@ import Foundation
 									</dict>
 								</dict>
 							</dict>
+							<key>is-complete</key>
+							<true/>
 							<key>text-context</key>
 							<dict>
 								<key>focused</key>
@@ -272,6 +282,8 @@ import Foundation
 									</dict>
 								</dict>
 							</dict>
+							<key>is-complete</key>
+							<true/>
 							<key>text-context</key>
 							<dict>
 								<key>focused</key>
@@ -319,6 +331,8 @@ import Foundation
 									</dict>
 								</dict>
 							</dict>
+							<key>is-complete</key>
+							<true/>
 							<key>text-context</key>
 							<dict>
 								<key>focused</key>
@@ -389,6 +403,8 @@ import Foundation
 							</dict>
 						</dict>
 					</dict>
+					<key>is-complete</key>
+					<true/>
 					<key>text-context</key>
 					<dict>
 						<key>focused</key>
@@ -397,7 +413,7 @@ import Foundation
 						<key>leading</key>
 						<string>                .padding(.leading, 10)
                 .padding(2)
-                .font(.title2)</string>
+                .font(.title3)</string>
 						<key>trailing</key>
 						<string>                .padding(.top, 2)
                 .foregroundColor(textColor)
@@ -406,6 +422,53 @@ import Foundation
 					</dict>
 					<key>title</key>
 					<string>把字體改成.title3</string>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>0</string>
+							<key>EndingLineNumber</key>
+							<string>86</string>
+							<key>StartingColumnNumber</key>
+							<string>0</string>
+							<key>StartingLineNumber</key>
+							<string>85</string>
+							<key>Timestamp</key>
+							<string>724167320.281708</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Gremo/View/ScoreCalculateView.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>            Text(String(format: "\(label)平均：%.2f", value))
+</string>
+						<key>leading</key>
+						<string>                .frame(width: 25)
+                .foregroundColor(color)
+</string>
+						<key>trailing</key>
+						<string>                .padding(.leading, 10)
+                .padding(2)
+                .font(.title3)
+</string>
+					</dict>
+					<key>title</key>
+					<string>前面改粗體</string>
 					<key>type</key>
 					<string>bookmark</string>
 				</dict>
@@ -426,13 +489,13 @@ import Foundation
 							<key>EndingColumnNumber</key>
 							<string>0</string>
 							<key>EndingLineNumber</key>
-							<string>160</string>
+							<string>126</string>
 							<key>StartingColumnNumber</key>
 							<string>0</string>
 							<key>StartingLineNumber</key>
-							<string>159</string>
+							<string>125</string>
 							<key>Timestamp</key>
-							<string>724170744.502584</string>
+							<string>726589474.678704</string>
 						</dict>
 						<key>rebasable-url</key>
 						<dict>
@@ -457,9 +520,9 @@ import Foundation
     
 </string>
 						<key>trailing</key>
-						<string>        var scores: [String] = []
-        for i in 0..&lt;6 {
-            let score = key == "Average" ? String(userDefault.double(forKey: "\(key)Score\(i + 1)")): userDefault.string(forKey: "\(key)Score\(i + 1)") ?? ""
+						<string>        let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
+        guard isSubjectOn else { return 0 }
+        
 </string>
 					</dict>
 					<key>title</key>
@@ -553,7 +616,7 @@ import Foundation
 
     func initializeData() {</string>
 						<key>trailing</key>
-						<string>        for info in globalViewModel.info where info.subject.isAvailable {
+						<string>        for info in globalViewModel.info {
             if userDefault.object(forKey: "is\(info.key)InChart") == nil {
                 userDefault.set(info.subject == .social ? false: true, forKey: "is\(info.key)InChart")
 </string>
@@ -563,58 +626,59 @@ import Foundation
 					<key>type</key>
 					<string>bookmark</string>
 				</dict>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>40</string>
+							<key>EndingLineNumber</key>
+							<string>36</string>
+							<key>StartingColumnNumber</key>
+							<string>12</string>
+							<key>StartingLineNumber</key>
+							<string>36</string>
+							<key>Timestamp</key>
+							<string>726588000.202157</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Gremo/View/CustomToolBar/CustomToolBar.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>is-complete</key>
+					<true/>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>GeometryReader { geometry in</string>
+						<key>leading</key>
+						<string>    var body: some View {
+        if names.count == content.count &amp;&amp; content.count &gt; 0 {
+            </string>
+						<key>trailing</key>
+						<string>
+                VStack {
+                    VStack {
+</string>
+					</dict>
+					<key>title</key>
+					<string>Toolbar在鍵盤被呼叫的時候會被推到鍵盤上面</string>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
 			</array>
 			<key>title</key>
 			<string>bugs</string>
 			<key>type</key>
 			<string>group</string>
-		</dict>
-		<dict>
-			<key>destination</key>
-			<dict>
-				<key>location-parameters</key>
-				<dict>
-					<key>EndingColumnNumber</key>
-					<string>0</string>
-					<key>EndingLineNumber</key>
-					<string>86</string>
-					<key>StartingColumnNumber</key>
-					<string>0</string>
-					<key>StartingLineNumber</key>
-					<string>85</string>
-					<key>Timestamp</key>
-					<string>724167320.281708</string>
-				</dict>
-				<key>rebasable-url</key>
-				<dict>
-					<key>base</key>
-					<string>workspace</string>
-					<key>payload</key>
-					<dict>
-						<key>relative-path</key>
-						<string>Gremo/View/ScoreCalculateView.swift</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>text-context</key>
-			<dict>
-				<key>focused</key>
-				<string>            Text(String(format: "\(label)平均：%.2f", value))
-</string>
-				<key>leading</key>
-				<string>                .frame(width: 25)
-                .foregroundColor(color)
-</string>
-				<key>trailing</key>
-				<string>                .padding(.leading, 10)
-                .padding(2)
-                .font(.title2)
-</string>
-			</dict>
-			<key>title</key>
-			<string>前面改粗體</string>
-			<key>type</key>
-			<string>bookmark</string>
 		</dict>
 	</array>
 </dict>

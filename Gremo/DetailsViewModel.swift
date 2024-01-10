@@ -183,7 +183,7 @@ class DetailsViewModel: ObservableObject {
         //計算圖表的最大值是多少
         max = 0
         for item in newArray {
-            if item.isOn && item.subject.isAvailable {
+            if item.isOn {
                 max += isHasWeighted ? Int(item.weighted) * 100: 100
             }
         }
@@ -286,7 +286,7 @@ class DetailsViewModel: ObservableObject {
     
     func readScoreData(scope: Int) {
         let userDefault = UserDefaults.standard
-        for (i, info) in subjectInfo.enumerated() where info.subject.isAvailable {
+        for (i, info) in subjectInfo.enumerated() {
             subjectInfo[i].score = userDefault.string(forKey: "\(info.key)Score\(scope)") ?? ""
         }
         squareValue = [

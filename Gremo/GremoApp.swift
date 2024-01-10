@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 @main
 struct GremoApp: App {
@@ -14,7 +15,15 @@ struct GremoApp: App {
     var body: some Scene {
         WindowGroup {
             Home(viewModel: viewModel)
-
+                .task {
+                    if #available(iOS 17, *) {
+//                        try? Tips.resetDatastore()
+                        try? Tips.configure([
+    //                        .displayFrequency(.immediate),
+                            .datastoreLocation(.applicationDefault)
+                        ])
+                    }
+                }
         }
     }
 }

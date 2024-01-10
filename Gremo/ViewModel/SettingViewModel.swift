@@ -29,14 +29,14 @@ class SettingViewModel: ObservableObject {
     func resetSetting() {
         //科目開啟 關閉
         for (i, info) in globalViewModel.info.enumerated() {
-            globalViewModel.info[i].isOn = info.subject == .social ? false: info.subject.isAvailable
+            globalViewModel.info[i].isOn = info.subject != .social
             //排除社會科⬆️
-            userDefault.set(info.subject == .social ? false: info.subject.isAvailable, forKey: "is\(info.key)On")
+            userDefault.set(info.subject != .social, forKey: "is\(info.key)On")
         }
         
         //加權分
         let weighteds: [Double] = [5, 3, 4, 0, 0, 1, 1, 3, 1, 1, 1, 3, 1, 1]
-        for (i, info) in globalViewModel.info.enumerated() where info.subject.isAvailable {
+        for (i, info) in globalViewModel.info.enumerated() {
             let weighted = weighteds[i]
             globalViewModel.info[i].weighted = weighted
             userDefault.set(weighted, forKey: "\(info.key)Weighted")

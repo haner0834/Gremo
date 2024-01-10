@@ -20,7 +20,7 @@ struct ToolBarView: View {
     
     let names: [NameItem]
     
-    var content: [AnyView]
+    @State private var content: [AnyView]
     
     @State private var columns: [GridItem] = []
     
@@ -75,6 +75,7 @@ struct ToolBarView: View {
                         .frame(height: 41)
                         .padding(.horizontal, 3)
                         .padding(.top, -1.5)
+                        .ignoresSafeArea(.keyboard)
                     }
                 }
                 .onAppear {
@@ -83,35 +84,11 @@ struct ToolBarView: View {
                     }
                 }
             }
+            .ignoresSafeArea(.keyboard)
+            //避免鍵盤被呼叫時Toolbar會被推到鍵盤上面
         }else {
             Text("The number of input views cannot be less than two, and the number of input views must be the same as names")
         }
-    }
-}
-
-extension TupleView {
-    var getViews: [AnyView] {
-        makeArray(from: value)
-    }
-    
-    private struct GenericView {
-        let body: Any
-        
-        var anyView: AnyView? {
-            AnyView(_fromValue: body)
-        }
-    }
-    
-    private func makeArray<Tuple>(from tuple: Tuple) -> [AnyView] {
-        func convert(child: Mirror.Child) -> AnyView? {
-            withUnsafeBytes(of: child.value) { ptr -> AnyView? in
-                let binded = ptr.bindMemory(to: GenericView.self)
-                return binded.first?.anyView
-            }
-        }
-        
-        let tupleMirror = Mirror(reflecting: tuple)
-        return tupleMirror.children.compactMap(convert)
     }
 }
 
@@ -126,8 +103,10 @@ extension TupleView {
         ScoreCalculate(viewModel: ScoreCalculateViewModel(score: GremoViewModel()))
             .environmentObject(GremoViewModel())
         
-        Text("????")
+        Summary(viewModel: SummaryViewModel(globalViewModel: GremoViewModel()))
+            .environmentObject(GremoViewModel())
         
-        Text(":D")
+        Setting(viewModel: SettingViewModel(globalViewModel: GremoViewModel()))
+            .environmentObject(GremoViewModel())
     })
 }

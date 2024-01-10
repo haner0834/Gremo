@@ -68,9 +68,7 @@ struct LinechartSetting: View {
             
             for info in globalViewModel.info {
                 var isSubjectInChart: Bool = UserDefaults.standard.bool(forKey: "is\(info.key)InChart")
-                if info.subject.isAvailable {
-                    checkBoxValue.append(.init(name: info.name, key: info.key, isInChart: isSubjectInChart, isOn: info.isOn))
-                }
+                checkBoxValue.append(.init(name: info.name, key: info.key, isInChart: isSubjectInChart, isOn: info.isOn))
             }
         }
     }
