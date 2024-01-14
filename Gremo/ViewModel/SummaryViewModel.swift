@@ -60,7 +60,9 @@ class SummaryViewModel: ObservableObject {
     
     func getAverage(key: String) -> Double {
         let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
-        guard isSubjectOn else { return 0 }
+        if key != "Average" {
+            guard isSubjectOn else { return 0 }
+        }
         
         var scores: [String] = []
         for i in 0..<6 {
