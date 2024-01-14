@@ -232,14 +232,13 @@ class ScoreCalculateViewModel: ObservableObject {
         let socialAverage = subjects.info.getAverageScore(forType: .social)
         
         withAnimation {
-            subjects.averageScores = AverageScore(total: totalAverage,
-                                                  arts: artsAverage,
-                                                  science: scienceAverage,
-                                                  social: socialAverage)
+            let averageScores = AverageScore(total: totalAverage, arts: artsAverage, science: scienceAverage, social: socialAverage)
+            subjects.averageScores = averageScores
         }
     }
     
     func deleteScoreData() {
+        //不用更改AverageScore是因為已經跟分數綁在一起了
         userDefault.set(0, forKey: "AverageScore\(scope + 1)")
         for (i, info) in subjects.info.enumerated() {
             subjects.info[i].score = ""
@@ -284,7 +283,12 @@ class ScoreCalculateViewModel: ObservableObject {
             userDefault.set(false, forKey: "isFirstUse")
         }
         
-        scope = subjects.isWeeklyExamOpen ? 0: 1
+        //取得儲存的scope
+        let scope = userDefault.integer(forKey: "scope")
+        let isScopeEven: Bool = scope % 2 == 0 //even is available when weekly exam is open
+        let isWeeklyExamOpen = subjects.isWeeklyExamOpen
+        self.scope = isWeeklyExamOpen ? scope: (isScopeEven ? scope + 1: scope)
+        //如果週考有開啟，就用儲存的scope就好了，否則就看他是不是偶數，是的話就加一
         
         getScopeScore(scope)
         

@@ -17,8 +17,9 @@ struct NewFunctions: Tip {
     }
     
     var message: Text? {
-        Text("把各科的加權分放到輸入格旁邊、\n用顏色條更直觀地顯示成績")
+        Text("把各科的加權分放到輸入格旁邊、\n把科目的分類用顏色顯示")
     }
+    
     
     var image: Image? {
         Image(systemName: "star.circle")
@@ -53,7 +54,7 @@ struct CheckDetailsTip: Tip {
 
 @available(iOS 17, *)
 struct ShowWhyDisableTip: Tip {
-    static let checkDetailsEvent = Event(id: "showWhyDisable")
+    static let showWhyDisable = Event(id: "showWhyDisable")
     
     var title: Text {
         Text("已禁用關閉的科目")
@@ -65,6 +66,12 @@ struct ShowWhyDisableTip: Tip {
     
     var image: Image? {
         Image(systemName: "xmark.circle")
+    }
+    
+    var rules: [Rule] {
+        #Rule(Self.showWhyDisable) { event in
+            event.donations.count < 3
+        }
     }
 }
 

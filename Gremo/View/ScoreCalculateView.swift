@@ -31,6 +31,7 @@ struct ScopeButton: View {
             Text(label)
                 .foregroundColor(Color("ContraryColor"))
                 .padding(.vertical, 8)
+                .font(.callout)
         }
         .cornerRadius(12)
         .padding(.horizontal, 1)
@@ -43,13 +44,30 @@ struct ScopeButton: View {
 struct ScoreEditor: View {
     @Binding var score: String
     var color: Color
-    let label: String
-    let weighted: Double
+    var info: SubjectInfo
+    
+    var circleColor: Color {
+        if info.subject.isArtsSubject {
+            return chartColor(.lightBlue)
+        }
+        if info.subject.isScienceSubject {
+            return chartColor(.purpleBlue)
+        }
+        if info.subject.isSocialSubject {
+            return chartColor(.purple)
+        }
+        return .primary
+    }
     
     var body: some View {
         HStack {
+            Circle()
+                .foregroundStyle(circleColor)
+                .frame(width: 10)
+                .padding(.trailing, 7)
+            
             VStack {
-                Text(label)
+                Text(info.name)
                 
 //                if !score.isEmpty {
                 Rectangle()
@@ -60,11 +78,11 @@ struct ScoreEditor: View {
 //                }
             }
             
-            TextField("\(label)分數", text: $score)
+            TextField("\(info.name)分數", text: $score)
                 .padding(.leading, 20)
                 .keyboardType(.numberPad)
 
-            Text("× \(String(format: "%.0f", weighted))")
+            Text("× \(String(format: "%.0f", info.weighted))")
                 .font(.footnote)
                 .foregroundColor(.gray)
         }

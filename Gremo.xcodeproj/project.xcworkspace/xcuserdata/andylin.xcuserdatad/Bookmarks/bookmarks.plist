@@ -384,13 +384,13 @@ import Foundation
 							<key>EndingColumnNumber</key>
 							<string>0</string>
 							<key>EndingLineNumber</key>
-							<string>89</string>
+							<string>107</string>
 							<key>StartingColumnNumber</key>
-							<string>30</string>
+							<string>0</string>
 							<key>StartingLineNumber</key>
-							<string>88</string>
+							<string>106</string>
 							<key>Timestamp</key>
-							<string>724167265.538512</string>
+							<string>726821843.132147</string>
 						</dict>
 						<key>rebasable-url</key>
 						<dict>
@@ -408,12 +408,12 @@ import Foundation
 					<key>text-context</key>
 					<dict>
 						<key>focused</key>
-						<string>
+						<string>                .font(.title3)
 </string>
 						<key>leading</key>
 						<string>                .padding(.leading, 10)
                 .padding(2)
-                .font(.title3)</string>
+</string>
 						<key>trailing</key>
 						<string>                .padding(.top, 2)
                 .foregroundColor(textColor)
@@ -433,13 +433,13 @@ import Foundation
 							<key>EndingColumnNumber</key>
 							<string>0</string>
 							<key>EndingLineNumber</key>
-							<string>86</string>
+							<string>104</string>
 							<key>StartingColumnNumber</key>
 							<string>0</string>
 							<key>StartingLineNumber</key>
-							<string>85</string>
+							<string>103</string>
 							<key>Timestamp</key>
-							<string>724167320.281708</string>
+							<string>726821843.132165</string>
 						</dict>
 						<key>rebasable-url</key>
 						<dict>
@@ -482,197 +482,264 @@ import Foundation
 			<key>children</key>
 			<array>
 				<dict>
-					<key>destination</key>
-					<dict>
-						<key>location-parameters</key>
+					<key>children</key>
+					<array>
 						<dict>
-							<key>EndingColumnNumber</key>
-							<string>0</string>
-							<key>EndingLineNumber</key>
-							<string>126</string>
-							<key>StartingColumnNumber</key>
-							<string>0</string>
-							<key>StartingLineNumber</key>
-							<string>125</string>
-							<key>Timestamp</key>
-							<string>726589474.678704</string>
-						</dict>
-						<key>rebasable-url</key>
-						<dict>
-							<key>base</key>
-							<string>workspace</string>
-							<key>payload</key>
+							<key>destination</key>
 							<dict>
-								<key>relative-path</key>
-								<string>Gremo/ViewModel/SummaryViewModel.swift</string>
+								<key>location-parameters</key>
+								<dict>
+									<key>EndingColumnNumber</key>
+									<string>0</string>
+									<key>EndingLineNumber</key>
+									<string>128</string>
+									<key>StartingColumnNumber</key>
+									<string>0</string>
+									<key>StartingLineNumber</key>
+									<string>127</string>
+									<key>Timestamp</key>
+									<string>726591866.033579</string>
+								</dict>
+								<key>rebasable-url</key>
+								<dict>
+									<key>base</key>
+									<string>workspace</string>
+									<key>payload</key>
+									<dict>
+										<key>relative-path</key>
+										<string>Gremo/ViewModel/SummaryViewModel.swift</string>
+									</dict>
+								</dict>
 							</dict>
-						</dict>
-					</dict>
-					<key>is-complete</key>
-					<true/>
-					<key>text-context</key>
-					<dict>
-						<key>focused</key>
-						<string>    func compareScore(key: String) -&gt; Double {
+							<key>is-complete</key>
+							<true/>
+							<key>text-context</key>
+							<dict>
+								<key>focused</key>
+								<string>    func compareScore(key: String) -&gt; Double {
 </string>
-						<key>leading</key>
-						<string>    }
+								<key>leading</key>
+								<string>    }
     
 </string>
-						<key>trailing</key>
-						<string>        let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
+								<key>trailing</key>
+								<string>        let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
         guard isSubjectOn else { return 0 }
         
 </string>
-					</dict>
-					<key>title</key>
-					<string>無法辨識是否已輸入過分數</string>
-					<key>type</key>
-					<string>bookmark</string>
-				</dict>
-				<dict>
-					<key>destination</key>
-					<dict>
-						<key>location-parameters</key>
-						<dict>
-							<key>EndingColumnNumber</key>
-							<string>0</string>
-							<key>EndingLineNumber</key>
-							<string>117</string>
-							<key>StartingColumnNumber</key>
-							<string>0</string>
-							<key>StartingLineNumber</key>
-							<string>116</string>
-							<key>Timestamp</key>
-							<string>723915572.754378</string>
-						</dict>
-						<key>rebasable-url</key>
-						<dict>
-							<key>base</key>
-							<string>workspace</string>
-							<key>payload</key>
-							<dict>
-								<key>relative-path</key>
-								<string>Gremo/Details.swift</string>
 							</dict>
+							<key>title</key>
+							<string>無法辨識是否已輸入過分數</string>
+							<key>type</key>
+							<string>bookmark</string>
 						</dict>
-					</dict>
-					<key>text-context</key>
-					<dict>
-						<key>focused</key>
-						<string>                        ForEach(viewModel.subjectInfo) { info in
+						<dict>
+							<key>destination</key>
+							<dict>
+								<key>location-parameters</key>
+								<dict>
+									<key>EndingColumnNumber</key>
+									<string>0</string>
+									<key>EndingLineNumber</key>
+									<string>117</string>
+									<key>StartingColumnNumber</key>
+									<string>0</string>
+									<key>StartingLineNumber</key>
+									<string>116</string>
+									<key>Timestamp</key>
+									<string>723915572.754378</string>
+								</dict>
+								<key>rebasable-url</key>
+								<dict>
+									<key>base</key>
+									<string>workspace</string>
+									<key>payload</key>
+									<dict>
+										<key>relative-path</key>
+										<string>Gremo/Details.swift</string>
+									</dict>
+								</dict>
+							</dict>
+							<key>text-context</key>
+							<dict>
+								<key>focused</key>
+								<string>                        ForEach(viewModel.subjectInfo) { info in
 </string>
-						<key>leading</key>
-						<string>                    
+								<key>leading</key>
+								<string>                    
                     Chart {
 </string>
-						<key>trailing</key>
-						<string>                            let isHasWeighted = viewModel.isHasWeighted
+								<key>trailing</key>
+								<string>                            let isHasWeighted = viewModel.isHasWeighted
                             
                             BarMark(x: .value("score", info.calculateScore(isHasWeighted: isHasWeighted)),
 </string>
-					</dict>
-					<key>title</key>
-					<string>沒開啟的科目不應該出現在圖表上</string>
-					<key>type</key>
-					<string>bookmark</string>
-				</dict>
-				<dict>
-					<key>destination</key>
-					<dict>
-						<key>location-parameters</key>
-						<dict>
-							<key>EndingColumnNumber</key>
-							<string>0</string>
-							<key>EndingLineNumber</key>
-							<string>22</string>
-							<key>StartingColumnNumber</key>
-							<string>27</string>
-							<key>StartingLineNumber</key>
-							<string>21</string>
-							<key>Timestamp</key>
-							<string>724087036.586355</string>
-						</dict>
-						<key>rebasable-url</key>
-						<dict>
-							<key>base</key>
-							<string>workspace</string>
-							<key>payload</key>
-							<dict>
-								<key>relative-path</key>
-								<string>Gremo/ViewModel/SummaryViewModel.swift</string>
 							</dict>
+							<key>title</key>
+							<string>沒開啟的科目不應該出現在圖表上</string>
+							<key>type</key>
+							<string>bookmark</string>
 						</dict>
-					</dict>
-					<key>is-complete</key>
-					<true/>
-					<key>text-context</key>
-					<dict>
-						<key>focused</key>
-						<string>
-</string>
-						<key>leading</key>
-						<string>    }
-
-    func initializeData() {</string>
-						<key>trailing</key>
-						<string>        for info in globalViewModel.info {
-            if userDefault.object(forKey: "is\(info.key)InChart") == nil {
-                userDefault.set(info.subject == .social ? false: true, forKey: "is\(info.key)InChart")
-</string>
-					</dict>
-					<key>title</key>
-					<string>圖表在開啟第二次時會連接頭尾</string>
-					<key>type</key>
-					<string>bookmark</string>
-				</dict>
-				<dict>
-					<key>destination</key>
-					<dict>
-						<key>location-parameters</key>
 						<dict>
-							<key>EndingColumnNumber</key>
-							<string>40</string>
-							<key>EndingLineNumber</key>
-							<string>36</string>
-							<key>StartingColumnNumber</key>
-							<string>12</string>
-							<key>StartingLineNumber</key>
-							<string>36</string>
-							<key>Timestamp</key>
-							<string>726588000.202157</string>
-						</dict>
-						<key>rebasable-url</key>
-						<dict>
-							<key>base</key>
-							<string>workspace</string>
-							<key>payload</key>
+							<key>destination</key>
 							<dict>
-								<key>relative-path</key>
-								<string>Gremo/View/CustomToolBar/CustomToolBar.swift</string>
+								<key>location-parameters</key>
+								<dict>
+									<key>EndingColumnNumber</key>
+									<string>40</string>
+									<key>EndingLineNumber</key>
+									<string>36</string>
+									<key>StartingColumnNumber</key>
+									<string>12</string>
+									<key>StartingLineNumber</key>
+									<string>36</string>
+									<key>Timestamp</key>
+									<string>726588000.202157</string>
+								</dict>
+								<key>rebasable-url</key>
+								<dict>
+									<key>base</key>
+									<string>workspace</string>
+									<key>payload</key>
+									<dict>
+										<key>relative-path</key>
+										<string>Gremo/View/CustomToolBar/CustomToolBar.swift</string>
+									</dict>
+								</dict>
 							</dict>
-						</dict>
-					</dict>
-					<key>is-complete</key>
-					<true/>
-					<key>text-context</key>
-					<dict>
-						<key>focused</key>
-						<string>GeometryReader { geometry in</string>
-						<key>leading</key>
-						<string>    var body: some View {
+							<key>is-complete</key>
+							<true/>
+							<key>text-context</key>
+							<dict>
+								<key>focused</key>
+								<string>GeometryReader { geometry in</string>
+								<key>leading</key>
+								<string>    var body: some View {
         if names.count == content.count &amp;&amp; content.count &gt; 0 {
             </string>
-						<key>trailing</key>
-						<string>
+								<key>trailing</key>
+								<string>
                 VStack {
                     VStack {
 </string>
-					</dict>
+							</dict>
+							<key>title</key>
+							<string>Toolbar在鍵盤被呼叫的時候會被推到鍵盤上面</string>
+							<key>type</key>
+							<string>bookmark</string>
+						</dict>
+						<dict>
+							<key>destination</key>
+							<dict>
+								<key>location-parameters</key>
+								<dict>
+									<key>EndingColumnNumber</key>
+									<string>0</string>
+									<key>EndingLineNumber</key>
+									<string>22</string>
+									<key>StartingColumnNumber</key>
+									<string>27</string>
+									<key>StartingLineNumber</key>
+									<string>21</string>
+									<key>Timestamp</key>
+									<string>724087036.586355</string>
+								</dict>
+								<key>rebasable-url</key>
+								<dict>
+									<key>base</key>
+									<string>workspace</string>
+									<key>payload</key>
+									<dict>
+										<key>relative-path</key>
+										<string>Gremo/ViewModel/SummaryViewModel.swift</string>
+									</dict>
+								</dict>
+							</dict>
+							<key>is-complete</key>
+							<true/>
+							<key>text-context</key>
+							<dict>
+								<key>focused</key>
+								<string>
+</string>
+								<key>leading</key>
+								<string>    }
+
+    func initializeData() {</string>
+								<key>trailing</key>
+								<string>        for info in globalViewModel.info {
+            if userDefault.object(forKey: "is\(info.key)InChart") == nil {
+                userDefault.set(info.subject == .social ? false: true, forKey: "is\(info.key)InChart")
+</string>
+							</dict>
+							<key>title</key>
+							<string>圖表在開啟第二次時會連接頭尾</string>
+							<key>type</key>
+							<string>bookmark</string>
+						</dict>
+					</array>
 					<key>title</key>
-					<string>Toolbar在鍵盤被呼叫的時候會被推到鍵盤上面</string>
+					<string>6.1</string>
 					<key>type</key>
-					<string>bookmark</string>
+					<string>group</string>
+				</dict>
+				<dict>
+					<key>children</key>
+					<array>
+						<dict>
+							<key>destination</key>
+							<dict>
+								<key>location-parameters</key>
+								<dict>
+									<key>EndingColumnNumber</key>
+									<string>0</string>
+									<key>EndingLineNumber</key>
+									<string>61</string>
+									<key>StartingColumnNumber</key>
+									<string>44</string>
+									<key>StartingLineNumber</key>
+									<string>60</string>
+									<key>Timestamp</key>
+									<string>726591875.303502</string>
+								</dict>
+								<key>rebasable-url</key>
+								<dict>
+									<key>base</key>
+									<string>workspace</string>
+									<key>payload</key>
+									<dict>
+										<key>relative-path</key>
+										<string>Gremo/ViewModel/SummaryViewModel.swift</string>
+									</dict>
+								</dict>
+							</dict>
+							<key>is-complete</key>
+							<true/>
+							<key>text-context</key>
+							<dict>
+								<key>focused</key>
+								<string>
+</string>
+								<key>leading</key>
+								<string>    }
+    
+    func getAverage(key: String) -&gt; Double {</string>
+								<key>trailing</key>
+								<string>        let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
+        if key != "Average" {
+            guard isSubjectOn else { return 0 }
+</string>
+							</dict>
+							<key>title</key>
+							<string>平均分的比較分數會因為key-value = nil導致無法正確輸出成績</string>
+							<key>type</key>
+							<string>bookmark</string>
+						</dict>
+					</array>
+					<key>title</key>
+					<string>7.0</string>
+					<key>type</key>
+					<string>group</string>
 				</dict>
 			</array>
 			<key>title</key>

@@ -132,8 +132,7 @@ struct ScoreCalculate: View {
                             //我到7.0才有要把這些科目加進去：）
                             ScoreEditor(score: $globalViewModel.info[i].score,
                                         color: viewModel.textColor(score: Double(score) ?? 0, isAverage: false),
-                                        label: item.name,
-                                        weighted: item.weighted)
+                                        info: item)
                             .focused($focused, equals: item.subject)
                             .onChange(of: item.score) { _ in
                                 let score = Double(item.score) ?? 0
@@ -167,11 +166,6 @@ struct ScoreCalculate: View {
                             .padding(.leading, 13)
                             .padding(.top, 2)
                             .font(.title3)
-                        
-//                        Text("**總          分**：\(String(format: "%.0f", viewModel.subjects.totalScore))")
-//                            .padding(.leading, 13)
-//                            .padding(.top, 2)
-//                            .font(.title3)
                         
                         Spacer()
                         
@@ -237,6 +231,11 @@ struct ScoreCalculate: View {
         }
         .onAppear {
             
+            if #available(iOS 17, *) {
+                Task { await NewFunctions.newFunctionEvent.donate() }
+                //計算開啟幾次app
+            }
+            
             let numberOfExam = globalViewModel.numberOfExam + 1
             let isWeeklyExamOpen = userDefault.bool(forKey: "isWeeklyExamOpen")
             columns = Array(repeating: GridItem(.flexible()),
@@ -255,7 +254,7 @@ struct ScoreCalculate_Previews: PreviewProvider {
             .environmentObject(GremoViewModel())
             .task {
                 if #available(iOS 17, *) {
-                    try? Tips.resetDatastore()
+//                    try? Tips.resetDatastore()
                     try? Tips.configure([
 //                        .displayFrequency(.immediate),
                         .datastoreLocation(.applicationDefault)
@@ -264,14 +263,14 @@ struct ScoreCalculate_Previews: PreviewProvider {
             }
         
         Home(viewModel: GremoViewModel())
-//            .task {
-//                if #available(iOS 17, *) {
-//                    try? Tips.resetDatastore()
-//                    try? Tips.configure([
-////                        .displayFrequency(.immediate),
-//                        .datastoreLocation(.applicationDefault)
-//                    ])
-//                }
-//            }
+            .task {
+                if #available(iOS 17, *) {
+                    try? Tips.resetDatastore()
+                    try? Tips.configure([
+//                        .displayFrequency(.immediate),
+                        .datastoreLocation(.applicationDefault)
+                    ])
+                }
+            }
     }
 }

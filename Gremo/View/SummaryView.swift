@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Charts
 
 struct NavigationBarOfGroup: View {
     var action: () -> Void
@@ -33,37 +34,41 @@ struct NavigationBarOfGroup: View {
     }
 }
 
+struct NavigationButtonValue {
+    var average: Double
+    var subjectName: String
+    var key: String
+    var imageName: String
+    var comparedScore: Double
+    var textColor: Color
+}
+
 struct NavigationButton: View {
-    let average: Double
-    let subjectName: String
-    let key: String
-    let imageName: String
-    let comparedScore: Double
-    let textColor: Color
+    let value: NavigationButtonValue
     
     var body: some View {
         NavigationLink {
-            SubjectDetails(average: average, subjectName: subjectName, key: key)
+            SubjectDetails(average: value.average, subjectName: value.subjectName, key: value.key)
         } label: {
             HStack{
-                Text("\(subjectName)總平均")
+                Text("\(value.subjectName)總平均")
                 
                 Spacer()
                 
                 VStack {
-                    Text(String(format: "%.2f", average))
+                    Text(String(format: "%.2f", value.average))
                     //平均分
                     
                     HStack {
-                        Image(systemName: imageName)
+                        Image(systemName: value.imageName)
                             .bold()
                             .padding(.trailing, -5)
                         
-                        Text(String(format: "%.2f", comparedScore))
+                        Text(String(format: "%.2f", value.comparedScore))
                         //改變的分數
                     }
                     .font(.caption)
-                    .foregroundColor(textColor)
+                    .foregroundColor(value.textColor)
                     .padding(.bottom, 2)
                 }
             }
@@ -71,3 +76,36 @@ struct NavigationButton: View {
     }
 }
 
+struct SummaryChartView: View {
+    var minScore: Double
+    var scoreSummary: [LineChartValueItem]
+    let scale: KeyValuePairs<String, Color>
+    
+    var body: some View {
+        Chart {
+            if minScore <= 60 {
+                RuleMark(y: .value("及格線", 60))
+                    .foregroundStyle(.blue.opacity(0.7))
+                    .lineStyle(StrokeStyle(lineWidth: 2, dash: [7, 16]))
+            }
+            
+            ForEach(scoreSummary) { summary in
+                ForEach(summary.value) { score in
+                    PointMark(
+                        x: .value("", score.examName),
+                        y: .value("", score.score)
+                    )
+                    
+                    LineMark(
+                        x: .value("name", score.examName),
+                        y: .value("count", score.score)
+                    )
+                }
+                .foregroundStyle(by: .value("key", summary.name))
+            }
+        }
+        .chartYScale(domain: (minScore - 10)...100)
+        .chartForegroundStyleScale(scale)//這裡用了之後就可以不用再前面用.foregroundStyle()了
+        .frame(height: 180)
+    }
+}

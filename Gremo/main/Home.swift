@@ -40,6 +40,9 @@ struct Home: View {
                 Setting(viewModel: SettingViewModel(globalViewModel: viewModel))
                     .environmentObject(viewModel)
             }
+            .onAppear {
+                Task { await ShowWhyDisableTip.showWhyDisable.donate() }
+            }
         }else {
             TabView {
                 

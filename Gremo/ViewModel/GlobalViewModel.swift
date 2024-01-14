@@ -30,10 +30,10 @@ class GremoViewModel: ObservableObject {
             .init(score: "", weighted: 5, subject: .chinese, isOn: true, color: chartColor(.lightBlue)),
             .init(score: "", weighted: 3, subject: .english, isOn: true, color: chartColor(.yellow)),
             .init(score: "", weighted: 4, subject: .math, isOn: true, color: chartColor(.green)),
-            .init(score: "", weighted: 1, subject: .chemistry, isOn: false, color: .black),
-            .init(score: "", weighted: 1, subject: .physic, isOn: false, color: .black),
-            .init(score: "", weighted: 1, subject: .biology, isOn: true, color: .black),
-            .init(score: "", weighted: 1, subject: .geology, isOn: true, color: .black),
+            .init(score: "", weighted: 1, subject: .chemistry, isOn: false, color: .primary),
+            .init(score: "", weighted: 1, subject: .physic, isOn: false, color: .gray),
+            .init(score: "", weighted: 1, subject: .biology, isOn: true, color: .teal),
+            .init(score: "", weighted: 1, subject: .geology, isOn: true, color: Color(hue: 0.082, saturation: 0.387, brightness: 0.799)),
             .init(score: "", weighted: 3, subject: .science, isOn: true, color: chartColor(.purpleBlue)),
             .init(score: "", weighted: 1, subject: .history, isOn: true, color: chartColor(.purple)),
             .init(score: "", weighted: 1, subject: .civics, isOn: true, color: chartColor(.orange)),
@@ -115,6 +115,10 @@ extension Subject {
     
     var isScienceSubject: Bool {
         self == .math || self == .chemistry || self == .physic || self == .biology || self == .geology || self == .science
+    }
+    
+    var isAvailable: Bool {
+        return true
     }
 }
 

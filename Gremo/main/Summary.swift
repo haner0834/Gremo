@@ -17,11 +17,15 @@ struct Summary: View {
     
     @State private var isShowEdit: Bool = false
     
-    let scale: KeyValuePairs<String, Color> = [
+    @State private var scale: KeyValuePairs<String, Color> = [
         "平均": .accentColor,
         "國文": chartColor(.lightBlue),
         "英文": chartColor(.yellow),
         "數學": chartColor(.green),
+        "物理": Color("White-Black"),
+        "化學": .secondary,
+        "生物": .teal,
+        "地科": Color(hue: 0.082, saturation: 0.387, brightness: 0.799),
         "理化": chartColor(.purpleBlue),
         "歷史": chartColor(.purple),
         "公民": chartColor(.orange),
@@ -47,35 +51,9 @@ struct Summary: View {
 //                                
 //                                Spacer()
 //                            }
-                            
-                            Chart {
-                                if viewModel.scoreSummary.minScore() <= 60 {
-                                    RuleMark(y: .value("及格線", 60))
-                                        .foregroundStyle(.blue.opacity(0.7))
-                                        .lineStyle(StrokeStyle(lineWidth: 2, dash: [7, 16]))
-                                }
-                                
-                                ForEach(viewModel.scoreSummary) { summary in
-                                    ForEach(summary.value) { score in
-                                        PointMark(
-                                            x: .value("", score.examName),
-                                            y: .value("", score.score)
-                                        )
-                                        //.foregroundStyle(summary.color)
-                                        
-                                        LineMark(
-                                            x: .value("name", score.examName),
-                                            y: .value("count", score.score)
-                                        )
-                                        //.foregroundStyle(summary.color)
-                                    }
-                                    .foregroundStyle(by: .value("key", summary.name))
-                                    //.symbol(by: .value("", summary.name))
-                                }
-                            }
-                            .chartYScale(domain: (viewModel.scoreSummary.minScore() - 10)...100)
-                            .chartForegroundStyleScale(scale)
-                            .frame(height: 180)
+                            SummaryChartView(minScore: viewModel.scoreSummary.minScore(),
+                                             scoreSummary: viewModel.scoreSummary,
+                                             scale: scale)
                             .sheet(isPresented: $isShowEdit) {
                                 LinechartSetting()
                                     .environmentObject(globalViewModel)
@@ -90,27 +68,42 @@ struct Summary: View {
                     
                     let key = "Average"
                     let comparedScore = viewModel.compareScore(key: key)
-                    NavigationButton(average: viewModel.getAverage(key: key),
-                                     subjectName: "",
-                                     key: key,
-                                     imageName: viewModel.getImageName(comparedScore),
-                                     comparedScore: comparedScore,
-                                     textColor: viewModel.getImageColor(comparedScore))
+                    let value: NavigationButtonValue =
+                        .init(average: viewModel.getAverage(key: key),
+                              subjectName: "",
+                              key: key,
+                              imageName: viewModel.getImageName(comparedScore),
+                              comparedScore: comparedScore,
+                              textColor: viewModel.getImageColor(comparedScore))
+                    NavigationButton(value: value)
                     .frame(minHeight: 37)
                     
                     
                     ForEach(globalViewModel.info) { info in
                         let average = viewModel.getAverage(key: info.key)
                         let comparedScore = viewModel.compareScore(key: info.key)
-                        NavigationButton(average: average,
-                                         subjectName: info.name,
-                                         key: info.key,
-                                         imageName: viewModel.getImageName(comparedScore),
-                                         comparedScore: comparedScore,
-                                         textColor: viewModel.getImageColor(comparedScore))
-                        .frame(minHeight: 37)
-                        .disabled(!info.isOn)
-                        
+                        let value: NavigationButtonValue = 
+                            .init(average: average,
+                                  subjectName: info.name,
+                                  key: info.key,
+                                  imageName: viewModel.getImageName(comparedScore),
+                                  comparedScore: comparedScore,
+                                  textColor: viewModel.getImageColor(comparedScore))
+                        if #available(iOS 17, *) {
+                            if ShowWhyDisableTip.showWhyDisable.donations.count > 2 {
+                                if info.isOn {
+                                    NavigationButton(value: value)
+                                    .frame(minHeight: 37)
+                                }
+                            }else {
+                                NavigationButton(value: value)
+                                .frame(minHeight: 37)
+                                .disabled(!info.isOn)
+                            }
+                        }else if info.isOn {
+                            NavigationButton(value: value)
+                            .frame(minHeight: 37)
+                        }
                     }
                 }
             }
