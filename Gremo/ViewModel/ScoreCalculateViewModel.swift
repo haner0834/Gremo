@@ -159,17 +159,11 @@ class ScoreCalculateViewModel: ObservableObject {
             }
         }
         
-        if score >= highStandard {
-            return highColor
-        }
+        if score >= highStandard { return highColor }
         
-        if score < lowStandard && score != 0 {
-            return lowColor
-        }
+        if score < lowStandard && score != 0 { return lowColor }
         
-        if score < highStandard && score >= lowStandard {
-            return isAverage ? .teal: Color(red: 0.555, green: 0.831, blue: 0.878)
-        }
+        if score < highStandard && score >= lowStandard { return isAverage ? .teal: Color(red: 0.555, green: 0.831, blue: 0.878) }
         
         return Color("White-Black").opacity(isAverage ? 1: 0.15)
     }
@@ -287,7 +281,7 @@ class ScoreCalculateViewModel: ObservableObject {
         let scope = userDefault.integer(forKey: "scope")
         let isScopeEven: Bool = scope % 2 == 0 //even is available when weekly exam is open
         let isWeeklyExamOpen = subjects.isWeeklyExamOpen
-        self.scope = isWeeklyExamOpen ? scope: (isScopeEven ? scope + 1: scope)
+        self.scope = (isWeeklyExamOpen || !isScopeEven) ? scope: scope + 1
         //如果週考有開啟，就用儲存的scope就好了，否則就看他是不是偶數，是的話就加一
         
         getScopeScore(scope)

@@ -334,4 +334,72 @@ class DetailsViewModel: ObservableObject {
         changeChartData("全部")
 //        changeChartValue(for: "全部")
     }
+    
+    func processDragGesture(_ value: GestureStateGesture<DragGesture, CGSize>.Value) {
+        
+        var isRight: Bool {
+            value.translation.width > 0
+        }
+        
+        var isBlocked: Bool = false
+        
+        self.position.width = value.translation.width
+        
+        if abs(value.translation.width) > 100 {
+            //abs(_ x:):取絕對值
+            let lowStandard = globalViewModel.isWeeklyExamOpen ? 1: 2
+            let numberOfExam = globalViewModel.numberOfExam + 1
+            let highStandard = numberOfExam * 2
+            if isRight {
+                if scope > lowStandard {
+                    isBlocked = false
+                    
+                    scope -= 1
+                    x2 = -390 + position.width
+                    x3 = 0 + position.width
+                    
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        x1 = 0
+                        x2 = 0
+                        x3 = 390
+                    }
+                    
+                    x1 = -390
+                }else {
+                    isBlocked = true
+                }
+            }else {
+                
+                if scope < highStandard {
+                    isBlocked = false
+                    
+                    scope += globalViewModel.isWeeklyExamOpen ? 1: 2
+                    
+                    x1 = 0 + position.width
+                    x2 = 390 + position.width
+                    x3 = 390 + position.width
+                    
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        x1 = -390
+                        x2 = 0
+//                        x3 = 0
+                    }
+                    
+//                    x1 = -390
+//                    x2 = 0
+                    x3 = 390
+                }else {
+                    isBlocked = true
+                }
+            }
+        }
+        
+        if abs(value.translation.width) < 100 || isBlocked {
+            withAnimation(.interpolatingSpring(stiffness: 50, damping: 7, initialVelocity: 5)) {
+                self.position.width = 0
+            }
+        }else {
+            self.position.width = 0
+        }
+    }
 }
