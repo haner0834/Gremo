@@ -32,7 +32,8 @@ struct Summary: View {
         "地理": chartColor(.greenblue),
         "社會": chartColor(.blue),
         "英聽": chartColor(.pink),
-        "作文": chartColor(.brown)]
+        "作文": chartColor(.brown)
+    ]
     
     
     var body: some View {
@@ -93,7 +94,7 @@ struct Summary: View {
                             if ShowWhyDisableTip.showWhyDisable.donations.count > 2 {
                                 if info.isOn {
                                     NavigationButton(value: value)
-                                    .frame(minHeight: 37)
+                                        .frame(minHeight: 37)
                                 }
                             }else {
                                 NavigationButton(value: value)

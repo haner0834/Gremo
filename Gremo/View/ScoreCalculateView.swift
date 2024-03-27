@@ -111,6 +111,31 @@ struct AverageText: View {
     }
 }
 
+struct ChangeCalculateButton: View {
+    let isAllowCalculate: Bool
+    let action: () -> Void
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            Label("", systemImage: "lock\(isAllowCalculate ? "": ".open")")
+        }
+        .tint(.orange)
+    }
+}
+
+struct CloseSubjectButton: View {
+    let action: () -> Void
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            Label("", systemImage: "trash")
+        }
+        .tint(.red)
+    }
+}
+
 #Preview(body: {
     ScopeButton(scope: 1) { }
     

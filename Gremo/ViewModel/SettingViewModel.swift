@@ -20,10 +20,18 @@ class SettingViewModel: ObservableObject {
     @AppStorage("heightColor") var heightColor = "green"
     @AppStorage("lowColor") var lowColor = "red"
     
+    @Published var customHighColor: Color = Color.blue
+    @Published var customLowColor: Color = Color.blue
+    
     let userDefault = UserDefaults.standard
     
     init(globalViewModel: GremoViewModel) {
         self.globalViewModel = globalViewModel
+        
+        let colorData = ColorData()
+        
+        customHighColor = colorData.loadColor(colorType: .highStandard) ?? .blue
+        customLowColor = colorData.loadColor(colorType: .lowStandard) ?? .blue
     }
     
     func resetSetting() {
@@ -63,5 +71,36 @@ class SettingViewModel: ObservableObject {
 //        userDefault.set(60, forKey: "lowScore")
 //        userDefault.set(true, forKey: "isScoreInColor")
 //        userDefault.set(true, forKey: "isWeightedOn")
+    }
+    
+    
+}
+
+struct ColorData {
+    let userDefault = UserDefaults.standard
+    enum ColorType {
+        case highStandard, lowStandard
+        var key: String {
+            switch self {
+            case .highStandard:
+                return "customHighColor"
+            case .lowStandard:
+                return "customLowColor"
+            }
+        }
+    }
+    func saveColor(_ color: Color, colorType type: ColorType) {
+        let color = UIColor(color).cgColor
+        
+        guard let components = color.components else { return }
+        
+        userDefault.set(components, forKey: type.key)
+    }
+    
+    func loadColor(colorType type: ColorType) -> Color? {
+        guard let colorArray = userDefault.object(forKey: type.key) as? [CGFloat] else { return nil }
+        let color = Color(red: colorArray[0], green: colorArray[1], blue: colorArray[2])
+        
+        return color
     }
 }

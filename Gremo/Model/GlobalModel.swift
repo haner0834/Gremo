@@ -23,22 +23,20 @@ struct SubjectInfo: Identifiable {
     var score: String
     var weighted: Double
     var isOn: Bool
+    var isAllowsCalculate: Bool
     let subject: Subject
     let color: Color
-    let name: String
-    let key: String
     
-    init(score: String, weighted: Double, subject: Subject, isOn: Bool, color: Color) {
+    init(score: String, weighted: Double, subject: Subject, isOn: Bool, isAllowsCalculate: Bool = true, color: Color) {
         self.score = score
         self.weighted = weighted
         self.subject = subject
         self.isOn = isOn
         self.color = color
-        self.name = SubjectInfo.subjectName(subject)
-        self.key = SubjectInfo.subjectKeyName(subject)
+        self.isAllowsCalculate = isAllowsCalculate
     }
     
-    static func subjectName(_ subject: Subject) -> String {
+    var name: String {
         switch subject {
         case .chinese:
             return "國文"
@@ -71,7 +69,7 @@ struct SubjectInfo: Identifiable {
         }
     }
     
-    static func subjectKeyName(_ subject: Subject) -> String {
+    var key: String {
         switch subject {
         case .chinese:
             return "Chinese"

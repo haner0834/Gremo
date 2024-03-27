@@ -19,6 +19,10 @@
 		421E22B52A409C1B00D4654D /* GremoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E22B42A409C1B00D4654D /* GremoUITestsLaunchTests.swift */; };
 		422761942AC87BE100D24604 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422761932AC87BE100D24604 /* DetailsViewModel.swift */; };
 		422761962AC87DDC00D24604 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422761952AC87DDC00D24604 /* DataBase.swift */; };
+		423861FC2BAFC6B600CB5044 /* SubjectInfoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423861FB2BAFC6B600CB5044 /* SubjectInfoExtension.swift */; };
+		423861FE2BAFC71700CB5044 /* LineChartValueItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423861FD2BAFC71700CB5044 /* LineChartValueItemExtension.swift */; };
+		423862042BB0353600CB5044 /* BottomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423862032BB0353500CB5044 /* BottomAlert.swift */; };
+		423862062BB0560E00CB5044 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423862052BB0560E00CB5044 /* Alert.swift */; };
 		425E494C2B03C2070019AB36 /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425E494B2B03C2070019AB36 /* GlobalViewModel.swift */; };
 		425E494E2B0514AB0019AB36 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425E494D2B0514AB0019AB36 /* DetailsView.swift */; };
 		425E49502B0515780019AB36 /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425E494F2B0515780019AB36 /* DetailsModel.swift */; };
@@ -84,6 +88,10 @@
 		421E22B42A409C1B00D4654D /* GremoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GremoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		422761932AC87BE100D24604 /* DetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsViewModel.swift; path = Gremo/DetailsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		422761952AC87DDC00D24604 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		423861FB2BAFC6B600CB5044 /* SubjectInfoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInfoExtension.swift; sourceTree = "<group>"; };
+		423861FD2BAFC71700CB5044 /* LineChartValueItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartValueItemExtension.swift; sourceTree = "<group>"; };
+		423862032BB0353500CB5044 /* BottomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomAlert.swift; sourceTree = "<group>"; };
+		423862052BB0560E00CB5044 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		425E494B2B03C2070019AB36 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
 		425E494D2B0514AB0019AB36 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		425E494F2B0515780019AB36 /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
@@ -182,6 +190,7 @@
 				4218DC0B2AAD72980029D759 /* ViewModel */,
 				42CAFF3B2AE61C5C001D88F8 /* Model */,
 				42CAFF3E2AE677FC001D88F8 /* View */,
+				423861FA2BAFC68A00CB5044 /* Extensions */,
 				42BA16462B332AAC00772802 /* Unuse */,
 				421E229A2A409C1B00D4654D /* Assets.xcassets */,
 				42BFFBA32A8BABC20026C27A /* Launch Screen.storyboard */,
@@ -215,6 +224,15 @@
 				421E22B42A409C1B00D4654D /* GremoUITestsLaunchTests.swift */,
 			);
 			path = GremoUITests;
+			sourceTree = "<group>";
+		};
+		423861FA2BAFC68A00CB5044 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				423861FB2BAFC6B600CB5044 /* SubjectInfoExtension.swift */,
+				423861FD2BAFC71700CB5044 /* LineChartValueItemExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		425E494A2B00AA700019AB36 /* main */ = {
@@ -263,6 +281,7 @@
 				425E49512B08EE840019AB36 /* GlobalModel.swift */,
 				426CD37E2B25BDA900C2AED4 /* SummaryModel.swift */,
 				42ADC0C42B4EDE4900DA5DD3 /* TipsModel.swift */,
+				423862052BB0560E00CB5044 /* Alert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,6 +294,7 @@
 				425E494D2B0514AB0019AB36 /* DetailsView.swift */,
 				425E49552B0E55330019AB36 /* SettingView.swift */,
 				42BA16082B28B48200772802 /* SummaryView.swift */,
+				423862032BB0353500CB5044 /* BottomAlert.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -418,6 +438,7 @@
 				426CD37D2B24827600C2AED4 /* SummaryViewModel.swift in Sources */,
 				425E49542B0A5B820019AB36 /* SettingViewModel.swift in Sources */,
 				421E22972A409C1A00D4654D /* Gremo.xcdatamodeld in Sources */,
+				423861FC2BAFC6B600CB5044 /* SubjectInfoExtension.swift in Sources */,
 				425E494C2B03C2070019AB36 /* GlobalViewModel.swift in Sources */,
 				425E49502B0515780019AB36 /* DetailsModel.swift in Sources */,
 				426CD37F2B25BDA900C2AED4 /* SummaryModel.swift in Sources */,
@@ -429,6 +450,7 @@
 				42D432EE2A6CBB9000882FC2 /* scoreRatio.swift in Sources */,
 				42BE02FA2A95995100BCCEE2 /* LinechartSetting.swift in Sources */,
 				42BE02FC2A9B0F1E00BCCEE2 /* WeightedSetting.swift in Sources */,
+				423862062BB0560E00CB5044 /* Alert.swift in Sources */,
 				42BA164D2B3B273300772802 /* TupleView.swift in Sources */,
 				42BFFBA62A8BD1150026C27A /* subjectDetails.swift in Sources */,
 				4264C2922A55987400BBE938 /* ScoreCalculate.swift in Sources */,
@@ -436,9 +458,11 @@
 				421E22992A409C1A00D4654D /* ContentView.swift in Sources */,
 				42BA16092B28B48200772802 /* SummaryView.swift in Sources */,
 				42ADC0C52B4EDE4900DA5DD3 /* TipsModel.swift in Sources */,
+				423862042BB0353600CB5044 /* BottomAlert.swift in Sources */,
 				425E494E2B0514AB0019AB36 /* DetailsView.swift in Sources */,
 				425E49582B0E564C0019AB36 /* SubjectChooseViewModel.swift in Sources */,
 				4218DC0D2AAD7E080029D759 /* ScoreCalculateViewModel.swift in Sources */,
+				423861FE2BAFC71700CB5044 /* LineChartValueItemExtension.swift in Sources */,
 				425E49562B0E55330019AB36 /* SettingView.swift in Sources */,
 				42BA16072B2613BF00772802 /* Summary_old.swift in Sources */,
 				42BA164B2B3B26F900772802 /* ScoreReview.swift in Sources */,
@@ -606,7 +630,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Gremo/Gremo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Gremo/Preview Content\"";
 				DEVELOPMENT_TEAM = C47PSR6843;
@@ -630,7 +654,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 7.0;
+				MARKETING_VERSION = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-.Gremo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -651,7 +675,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Gremo/Gremo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Gremo/Preview Content\"";
 				DEVELOPMENT_TEAM = C47PSR6843;
@@ -675,7 +699,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 7.0;
+				MARKETING_VERSION = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-.Gremo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;

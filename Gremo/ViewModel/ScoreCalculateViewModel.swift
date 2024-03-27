@@ -8,100 +8,6 @@
 import SwiftUI
 import Foundation
 
-extension [SubjectInfo] {
-    //用subject來找第幾項
-    func getScore(for type: Subject) -> String {
-        return self[type.rawValue].score.isEmpty ? "0": self[type.rawValue].score
-    }
-    
-    //用subject來找第幾項
-    func getIndex(for type: Subject) -> Int {
-        return type.rawValue
-    }
-    
-    //找出能用的加權分
-    func getAvailibleWeighted() -> [Double] {
-        var weightedes: [Double] = []
-        
-        for item in self {
-            let isEntered: Bool = !item.score.isEmpty
-            let isSubjectOn: Bool = item.isOn
-            let isAvailible: Bool = isEntered && isSubjectOn
-            
-            weightedes.append(isAvailible ? item.weighted: 0)
-        }
-        
-        return weightedes
-    }
-    
-    func getTotalScore() -> Double {
-        //如果沒有將此科目開啟使用，就不計算
-        var totalScore = Double()
-        
-        for item in self {
-            //排除沒開啟、非數字輸入、沒輸入
-            if item.isOn, let score = Double(item.score) {
-                let result = score * item.weighted
-                totalScore += result
-            }
-        }
-        
-        return totalScore
-    }
-    
-    func getAverageScore(forType type: SubjectType) -> Double {
-        /*
-         把輸入的平均分類型轉換成[SubjectScoreInfo]，傳出一個新的array
-         用這個array計算總分
-         取得能用的加權加總（沒輸入的不要算進去）
-         計算後，把這項數據除以上面那些科目對應的加權分
-         回傳計算後的數據
-        */
-        
-        //把輸入的平均分類型轉換成[SubjectScoreInfo]，傳出一個新的array
-        
-        //取出要用的科目
-        let filteredArray = self.filter { scoreInfo in
-            switch type {
-            case .total:
-                return true
-            case .arts:
-                return scoreInfo.subject.isArtsSubject
-            case .science:
-                return scoreInfo.subject.isScienceSubject
-            case .social:
-                return scoreInfo.subject.isSocialSubject
-            }
-        }
-        
-        var newArray: [SubjectInfo] = filteredArray
-        let weightedes = filteredArray.getAvailibleWeighted()
-        
-        for i in 0..<newArray.count {
-            newArray[i].weighted = weightedes[i]
-        }
-        
-        //用這個array計算總分
-        let totalScore = filteredArray.getTotalScore()
-        
-        //取得加權分加總
-        let totalWeighted = filteredArray.reduce(0.0) { partialResult, scoreInfo in
-            let isAvailable = !scoreInfo.score.isEmpty && scoreInfo.isOn
-            return partialResult + (isAvailable ? scoreInfo.weighted: 0)
-        }
-        
-        //計算後，把這項數據除以上面那些科目對應的加權分
-        if totalWeighted != 0 {
-            let averageScore = totalScore / totalWeighted
-            //回傳計算後的數據
-            return averageScore
-        }
-        
-        //都沒有輸入的話就回傳0
-        return 0
-    }
-}
-
 class ScoreCalculateViewModel: ObservableObject {
     
     @Published var subjects: GremoViewModel
@@ -109,6 +15,13 @@ class ScoreCalculateViewModel: ObservableObject {
     @Published var scope: Int = 0
     
     @Published var showWarning = false
+    
+    @Published var isShowAlert: Bool = false
+    
+    @Published var changeSubject: Subject? = nil
+    @Published var changeType: ChangeType? = nil
+    
+    @Published var alertItem: AlertItem = AlertItem(title: nil, message: "左側按鈕復原", buttomTitle: "復原")
     
     let userDefault: UserDefaults = UserDefaults.standard
     
@@ -128,6 +41,8 @@ class ScoreCalculateViewModel: ObservableObject {
         let highStandard = userDefault.double(forKey: "heightScore")
         let lowStandard = userDefault.double(forKey: "lowScore")
         
+        let colorData = ColorData()
+        
         var highColor: Color {
             let setedHighColor = userDefault.string(forKey: "heightColor") ?? ""
             
@@ -138,6 +53,11 @@ class ScoreCalculateViewModel: ObservableObject {
                 return .blue
             case "purple":
                 return .accentColor
+            case "custom":
+                if let color = colorData.loadColor(colorType: .highStandard) {
+                    return color
+                }
+                return .primary
             default:
                 return Color("White-Black")
             }
@@ -154,6 +74,11 @@ class ScoreCalculateViewModel: ObservableObject {
                 return .orange
             case "yellow":
                 return .yellow
+            case "custom":
+                if let color = colorData.loadColor(colorType: .lowStandard) {
+                    return color
+                }
+                return .primary
             default:
                 return Color("White-Black")
             }
@@ -203,7 +128,7 @@ class ScoreCalculateViewModel: ObservableObject {
         getScopeScore(scope)
     }
     
-    func saveScoreData() {
+    func saveAllScoreData() {
         //儲存輸入的分數
         let keys = subjects.info.map { $0.key }
         
@@ -217,6 +142,11 @@ class ScoreCalculateViewModel: ObservableObject {
 ///        userDefault.set(averageScores.science, forKey: "Science\(scope)")
 ///        userDefault.set(averageScores.social, forKey: "Social\(scope)")
         ///應該可以再出現時就計算，也不會花太多時間（？反正現在就先不除存，到時後看看
+    }
+    
+    func saveScoreData(_ score: String, forKey key: String) {
+        userDefault.set(score, forKey: "\(key)Score\(scope + 1)")
+        print("saved data(score: '\(score)', key: \(key))")
     }
     
     func calculateAverageScore() {
@@ -281,13 +211,81 @@ class ScoreCalculateViewModel: ObservableObject {
         let scope = userDefault.integer(forKey: "scope")
         let isScopeEven: Bool = scope % 2 == 0 //even is available when weekly exam is open
         let isWeeklyExamOpen = subjects.isWeeklyExamOpen
-        self.scope = (isWeeklyExamOpen || !isScopeEven) ? scope: scope + 1
+//        self.scope = (isWeeklyExamOpen || !isScopeEven) ? scope: scope + 1
         //如果週考有開啟，就用儲存的scope就好了，否則就看他是不是偶數，是的話就加一
+        let numberOfExam = (subjects.numberOfExam + 1) * (isWeeklyExamOpen ? 2: 1)
+        if isWeeklyExamOpen || !isScopeEven {
+            self.scope = scope < numberOfExam ? scope: numberOfExam - 1
+        }else {
+            self.scope = scope < numberOfExam ? scope + 1: numberOfExam - 1
+        }
         
         getScopeScore(scope)
         
         calculateAverageScore()
         
         subjects.totalScore = subjects.info.getTotalScore()
+    }
+    
+    func calculateScore() {
+        calculateAverageScore()
+        
+        subjects.totalScore = subjects.info.getTotalScore()
+    }
+    
+    func changeAllowsCalculate(for subject: Subject) {
+        let index = subject.rawValue
+        subjects.info[index].isAllowsCalculate.toggle()
+        
+        let isAllowsCalculate = subjects.info[index].isAllowsCalculate
+        changeSubject = subject
+        changeType = isAllowsCalculate ? .openCalculate: .closeCalculate
+        
+        if isShowAlert {
+            isShowAlert = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [self] in
+                isShowAlert = true
+            }
+        }else {
+            isShowAlert = true
+        }
+        
+        calculateScore()
+        
+        let key = subjects.info[index].key
+        userDefault.set(isAllowsCalculate, forKey: "is\(key)AllowsCalculate")
+    }
+    
+    func changeIsSubjectOn(for subject: Subject) {
+        let index = subject.rawValue
+        subjects.info[index].isOn.toggle()
+        
+        let isOn = subjects.info[index].isOn
+        changeSubject = subject
+        changeType = isOn ? .cancelDelete: .delete
+        
+        if isShowAlert {
+            isShowAlert = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [self] in
+                isShowAlert = true
+            }
+        }else {
+            isShowAlert = true
+        }
+        
+        calculateScore()
+        
+        let key = subjects.info[index].key
+        userDefault.set(isOn, forKey: "is\(key)On")
+    }
+    
+    func processRestore() {
+        withAnimation {
+            if changeType == .delete || changeType == .cancelDelete {
+                changeIsSubjectOn(for: changeSubject ?? .chinese)
+            }else {
+                changeAllowsCalculate(for: changeSubject ?? .chinese)
+            }
+        }
     }
 }

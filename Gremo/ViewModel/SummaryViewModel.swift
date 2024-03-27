@@ -127,7 +127,8 @@ class SummaryViewModel: ObservableObject {
     
     func compareScore(key: String) -> Double {
         let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
-        guard isSubjectOn else { return 0 }
+        //if the subject was accepted to show on chart (skip average status)
+        guard isSubjectOn || key == "Average" else { return 0 }
         
         var scores: [String] = []
         for i in 0..<6 {
@@ -142,26 +143,9 @@ class SummaryViewModel: ObservableObject {
             let front = Double(newList[i]) ?? 0
             let back = Double(newList[i - 1]) ?? 0
             result = front - back
+            print("subject name: \(key), front: \(front), back: \(back), result: \(result)")
         }
         
         return result
-    }
-}
-
-extension [LineChartValueItem] {
-    func minScore(maxScale: Double = 100) -> Double {
-        //給一個要取得的最大值，大於的就不取用
-        var min: Double = maxScale
-        //只取用value([Count(name: String, score: Double)])的部分
-        for value in self.map({ $0.value }) {
-            //只取用score(Double)的部分
-            let scores: [Double] = value.map { $0.score }
-            for score in scores where score < min {
-                //如果這個數字小於目前取得的最小數字，那就把最小數字更新為這個數字
-                min = score
-            }
-        }
-        
-        return min
     }
 }

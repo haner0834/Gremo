@@ -84,3 +84,17 @@ extension View {
         }
     }
 }
+
+@available(iOS 17, *)
+struct Remind: Tip {
+    
+    var title: Text {
+        Text("新功能")
+    }
+    
+    var message: Text? {
+        Text("可以透過左、右滑動來關閉計算或刪除科目")
+    }
+    
+    
+}

@@ -69,6 +69,15 @@ class GremoViewModel: ObservableObject {
             }else {
                 userDefault.set(info[i].isOn, forKey: "is\(info[i].key)On")
             }
+            
+            if let data = userDefault.object(forKey: "is\(info[i].key)AllowsCalculate"),
+               let isAllowsCalculate = data as? Bool {
+                info[i].isAllowsCalculate = isAllowsCalculate
+//                print("get data successfully(for key: \("is\(info[i].key)AllowsCalculate"), value: \(isAllowsCalculate)")
+            }else {
+                userDefault.set(info[i].isOn, forKey: "is\(info[i].key)AllowsCalculate")
+//                print("data created(for key: \("is\(info[i].key)AllowsCalculate"), value: \(info[i].isOn)")
+            }
         }
         
         //取得儲存的考試次數設定
@@ -119,15 +128,5 @@ extension Subject {
     
     var isAvailable: Bool {
         return true
-    }
-}
-
-extension SubjectInfo {
-    func calculateScore(isHasWeighted: Bool) -> Double {
-        if let score = Double(self.score) {
-            let weighted = isHasWeighted ? self.weighted: 1
-            return score * weighted
-        }
-        return 0
     }
 }

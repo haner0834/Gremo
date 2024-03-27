@@ -61,7 +61,7 @@ struct ToolBarView: View {
                                             .foregroundStyle(.secondary)
                                             .foregroundColor(i == selectIndex ? .accentColor: .secondary)
                                     }
-                                    .frame(width: (geometry.size.width / CGFloat(content.count)) - 10,
+                                    .frame(width: (geometry.size.width / CGFloat(content.count)) + 1,
                                            height: 45,
                                            alignment: .top)
                                     .background(Color(.contrary))
@@ -76,6 +76,7 @@ struct ToolBarView: View {
                         .padding(.horizontal, 3)
                         .padding(.top, -1.5)
                         .ignoresSafeArea(.keyboard)
+                        .background(Color(.contrary))
                     }
                 }
                 .onAppear {

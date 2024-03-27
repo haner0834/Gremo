@@ -30,6 +30,23 @@ struct TextFieldValue: Identifiable {
     var key: String
 }
 
+enum ChangeType {
+    case delete, cancelDelete, openCalculate, closeCalculate
+    
+    var alertItem: AlertItem {
+        switch self {
+        case .delete:
+            return AlertContext.deleteSubject
+        case .cancelDelete:
+            return AlertContext.cancelDeleteSubject
+        case .openCalculate:
+            return AlertContext.openedSubject
+        case .closeCalculate:
+            return AlertContext.closedSubject
+        }
+    }
+}
+
 //MARK: - structs
 
 struct AverageScore {

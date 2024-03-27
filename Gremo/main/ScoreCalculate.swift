@@ -35,7 +35,7 @@ struct ScoreCalculate: View {
     var body: some View {
         
         NavigationStack {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 HStack {
                     
                     LinearGradient(colors: LinearColor,
@@ -48,12 +48,6 @@ struct ScoreCalculate: View {
                             .fontWeight(.semibold)
                     }
                     .padding(.leading, 25)
-                    
-//                    Text("Gremo")
-//                        .font(.largeTitle)
-//                        .fontWeight(.semibold)
-//                        .foregroundColor(.accentColor)
-//                        .padding(.leading, 30)
                     
                     Spacer()
                     
@@ -129,23 +123,43 @@ struct ScoreCalculate: View {
                         let score = viewModel.subjects.info[i].score
                         
                         if item.isOn {
-                            //我到7.0才有要把這些科目加進去：）
                             ScoreEditor(score: $globalViewModel.info[i].score,
                                         color: viewModel.textColor(score: Double(score) ?? 0, isAverage: false),
                                         info: item)
                             .focused($focused, equals: item.subject)
-                            .onChange(of: item.score) { _ in
-                                let score = Double(item.score) ?? 0
-                                if score > 100  {
+                            .opacity(item.isAllowsCalculate ? 1: 0.3)
+                            .onChange(of: item.score) { newValue in
+                                //如果輸入為空且沒在輸入狀態
+                                if newValue.isEmpty && focused != nil {
+                                    viewModel.saveScoreData(newValue, forKey: item.key)
+                                    viewModel.calculateScore()
+                                    return
+                                }
+                                //判斷輸入的東西是否符合標準
+                                guard let score = Double(newValue) else { return }
+                                if score > 100 {
                                     viewModel.subjects.info[i].score = "100"
                                 }
                                 
-                                viewModel.calculateAverageScore()
-                                
-                                viewModel.subjects.totalScore = viewModel.subjects.info.getTotalScore()
+                                viewModel.calculateScore()
                                 
                                 if focused != nil {
-                                    viewModel.saveScoreData()
+                                    viewModel.saveAllScoreData()
+                                }
+                            }
+                            .swipeActions {
+                                let isAllowCalculate = viewModel.subjects.info[i].isAllowsCalculate
+                                ChangeCalculateButton(isAllowCalculate: isAllowCalculate) {
+                                    withAnimation {
+                                        viewModel.changeAllowsCalculate(for: item.subject)
+                                    }
+                                }
+                            }
+                            .swipeActions(edge: .leading) {
+                                CloseSubjectButton {
+                                    withAnimation {
+                                        viewModel.changeIsSubjectOn(for: item.subject)
+                                    }
                                 }
                             }
                         }
@@ -215,20 +229,13 @@ struct ScoreCalculate: View {
                     
                 }
             }
-            .onTapGesture {
-                //被點擊（此視圖）時執行下列程式碼
-                focused = nil
-                //focus的類型是 @FocusState，且綁定Focus字典的類型，不能用true, false來定義，要用一個值或沒有值（nil）來分配
-            }
-            
-            .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
-                .onEnded({ value in
-                    focused = nil
-                    viewModel.changeScope(value)
-                })
-            )
-            //要把onEnded包在gesture裡面，所以最後一個括號是要包著onEnded
+//            .background(Color.primary.opacity(0.07))
         }
+        .bottomAlert(isShow: $viewModel.isShowAlert,
+                     alertItem: viewModel.changeType?.alertItem ?? AlertItem(title: "error", message: "error", buttomTitle: "error"),
+                     button: Button(AlertContext.closedSubject.buttomTitle, action: viewModel.processRestore)
+        )
+        .scrollDismissesKeyboard(.immediately)
         .onAppear {
             
             if #available(iOS 17, *) {
@@ -252,25 +259,25 @@ struct ScoreCalculate_Previews: PreviewProvider {
     static var previews: some View {
         ScoreCalculate(viewModel: ScoreCalculateViewModel(score: GremoViewModel()))
             .environmentObject(GremoViewModel())
-            .task {
-                if #available(iOS 17, *) {
-//                    try? Tips.resetDatastore()
-                    try? Tips.configure([
-//                        .displayFrequency(.immediate),
-                        .datastoreLocation(.applicationDefault)
-                    ])
-                }
-            }
+//            .task {
+//                if #available(iOS 17, *) {
+////                    try? Tips.resetDatastore()
+//                    try? Tips.configure([
+////                        .displayFrequency(.immediate),
+//                        .datastoreLocation(.applicationDefault)
+//                    ])
+//                }
+//            }
         
         Home(viewModel: GremoViewModel())
-            .task {
-                if #available(iOS 17, *) {
-                    try? Tips.resetDatastore()
-                    try? Tips.configure([
-//                        .displayFrequency(.immediate),
-                        .datastoreLocation(.applicationDefault)
-                    ])
-                }
-            }
+//            .task {
+//                if #available(iOS 17, *) {
+//                    try? Tips.resetDatastore()
+//                    try? Tips.configure([
+////                        .displayFrequency(.immediate),
+//                        .datastoreLocation(.applicationDefault)
+//                    ])
+//                }
+//            }
     }
 }

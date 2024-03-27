@@ -498,7 +498,7 @@ import Foundation
 									<key>StartingLineNumber</key>
 									<string>127</string>
 									<key>Timestamp</key>
-									<string>726591866.033579</string>
+									<string>732883955.126847</string>
 								</dict>
 								<key>rebasable-url</key>
 								<dict>
@@ -524,8 +524,8 @@ import Foundation
 </string>
 								<key>trailing</key>
 								<string>        let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
-        guard isSubjectOn else { return 0 }
-        
+        //if the subject was accepted to show on chart (skip average status)
+        guard isSubjectOn || key == "Average" else { return 0 }
 </string>
 							</dict>
 							<key>title</key>

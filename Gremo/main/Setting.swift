@@ -44,6 +44,36 @@ struct Setting: View {
         colorScheme == .light
     }
     
+    var highColor: Color {
+        switch viewModel.heightColor {
+        case "green":
+            return Color("Green")
+        case "blue":
+            return .blue
+        case "purple":
+            return .accentColor
+        case "custom":
+            return viewModel.customHighColor
+        default:
+            return .primary
+        }
+    }
+    
+    var lowColor: Color {
+        switch viewModel.lowColor {
+        case "red":
+            return Color("Red")
+        case "orange":
+            return .orange
+        case "yellow":
+            return .yellow
+        case "custom":
+            return viewModel.customLowColor
+        default:
+            return .primary
+        }
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -57,76 +87,42 @@ struct Setting: View {
                                 UserDefaults.standard.set(newValue, forKey: "isScoreInColor")
                             }
                         
-                        StandardSlider(label: "高分變色標準", value: $viewModel.highScore)
+                        StandardSlider("高分變色標準", value: $viewModel.highScore, color: highColor)
                             .disabled(!globalViewModel.isScoreInColor)
-//                            .focused($focus)
                             .onChange(of: viewModel.highScore) { newValue in
                                 viewModel.highScore = newValue > 100 ? 100: newValue < viewModel.lowScore ? viewModel.lowScore: newValue
                             }
                         
-                        StandardSlider(label: "低分變色標準", value: $viewModel.lowScore)
+                        
+                        StandardSlider("低分變色標準", value: $viewModel.lowScore, color: lowColor)
                             .disabled(!globalViewModel.isScoreInColor)
                             .onChange(of: viewModel.lowScore) { newValue in
                                 viewModel.lowScore = newValue > 100 ? 100: newValue > viewModel.highScore ? viewModel.highScore: newValue
                             }
                         
                         Picker(selection: $viewModel.heightColor) {
-                            HStack{
-                                Image(systemName: "square.fill")
-                                    .foregroundColor(Color(.green))
-                                Text("綠色")
-                            }
-                            .tag("green")
-                            
-                            HStack{
-                                Image(systemName: "square.fill")
-                                    .foregroundColor(.blue)
-                                Text("藍色")
-                            }
-                            .tag("blue")
-                            
-                            HStack{
-                                Image(systemName: "square.fill")
-                                    .foregroundColor(.accentColor)
-                                Text("紫色")
-                            }
-                            .tag("purple")
+                            ChooseHighColor(color: $viewModel.customHighColor)
                         } label: {
                             Text("自訂顏色（高分）")
                         }
                         .pickerStyle(.navigationLink)
                         .disabled(!globalViewModel.isScoreInColor)
+                        .onChange(of: viewModel.customHighColor) { newValue in
+                            let colorData = ColorData()
+                            colorData.saveColor(newValue, colorType: .highStandard)
+                        }
                         
                         Picker(selection: $viewModel.lowColor) {
-                            HStack{
-                                Image(systemName: "square.fill")
-                                    .foregroundColor(Color(.red))
-                                
-                                Text("紅色")
-                            }
-                            .tag("red")
-                            
-                            HStack{
-                                Image(systemName: "square.fill")
-                                    .foregroundColor(.orange)
-                                
-                                Text("橘色")
-                            }
-                            .tag("orange")
-                            
-                            HStack{
-                                Image(systemName: "square.fill")
-                                    .foregroundColor(.yellow)
-                                
-                                Text("黃色")
-                            }
-                            .tag("yellow")
-                            
+                            ChooseLowColor(color: $viewModel.customLowColor)
                         } label: {
                             Text("自訂顏色（低分）")
                         }
                         .pickerStyle(.navigationLink)
                         .disabled(!globalViewModel.isScoreInColor)
+                        .onChange(of: viewModel.customLowColor) { newValue in
+                            let colorData = ColorData()
+                            colorData.saveColor(newValue, colorType: .lowStandard)
+                        }
                         
                     } header: {
                         Text("成績表示方法")
@@ -253,7 +249,7 @@ struct Setting: View {
             }
             .background(isLight ? Color(red: 0.949, green: 0.949, blue: 0.971) : .black)
         }
-        .scrollDismissesKeyboard(.interactively)
+        .scrollDismissesKeyboard(.immediately)
         //要把這個放在整個視圖的最大區，也就是放在最後，來修飾整個頁面的鍵盤消失辦法
     }
 }
