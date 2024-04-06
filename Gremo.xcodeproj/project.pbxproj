@@ -120,6 +120,7 @@
 		42C9E5B72AFBCEC60006370A /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		42CAFF3C2AE61CBA001D88F8 /* ScoreCalculateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculateModel.swift; sourceTree = "<group>"; };
 		42CAFF3F2AE67848001D88F8 /* ScoreCalculateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculateView.swift; sourceTree = "<group>"; };
+		42D34D252BC11ED900542056 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		42D432ED2A6CBB9000882FC2 /* scoreRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoreRatio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +194,7 @@
 				423861FA2BAFC68A00CB5044 /* Extensions */,
 				42BA16462B332AAC00772802 /* Unuse */,
 				421E229A2A409C1B00D4654D /* Assets.xcassets */,
+				42D34D252BC11ED900542056 /* PrivacyInfo.xcprivacy */,
 				42BFFBA32A8BABC20026C27A /* Launch Screen.storyboard */,
 				421E229C2A409C1B00D4654D /* Gremo.entitlements */,
 				421E22952A409C1A00D4654D /* Gremo.xcdatamodeld */,
