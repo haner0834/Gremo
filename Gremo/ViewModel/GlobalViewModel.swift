@@ -70,13 +70,20 @@ class GremoViewModel: ObservableObject {
                 userDefault.set(info[i].isOn, forKey: "is\(info[i].key)On")
             }
             
+            //取得科目是否允許計算
             if let data = userDefault.object(forKey: "is\(info[i].key)AllowsCalculate"),
                let isAllowsCalculate = data as? Bool {
                 info[i].isAllowsCalculate = isAllowsCalculate
-//                print("get data successfully(for key: \("is\(info[i].key)AllowsCalculate"), value: \(isAllowsCalculate)")
             }else {
                 userDefault.set(info[i].isOn, forKey: "is\(info[i].key)AllowsCalculate")
-//                print("data created(for key: \("is\(info[i].key)AllowsCalculate"), value: \(info[i].isOn)")
+            }
+            
+            //取得科目是否在圖表中
+            if let isInChart = userDefault.object(forKey: "is\(info[i].key)InChart") {
+                //初始值設置為`isOn`
+                info[i].isInChart = isInChart as? Bool ?? info[i].isOn
+            }else {
+                userDefault.set(info[i].isOn, forKey: "is\(info[i].key)InCgart")
             }
         }
         

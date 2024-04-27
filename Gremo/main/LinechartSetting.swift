@@ -53,6 +53,7 @@ struct LinechartSetting: View {
                         CheckBox(value: $checkBoxValue[i].isInChart, title: value.name, isOn: value.isOn)
                             .onChange(of: checkBoxValue[i].isInChart) { newValue in
                                 UserDefaults.standard.set(newValue, forKey: "is\(value.key)InChart")
+                                globalViewModel.info[i].isInChart = newValue
                             }
                     }
                 } footer: {
@@ -65,7 +66,6 @@ struct LinechartSetting: View {
         .listStyle(.automatic)
         .background(isLight ? Color(red: 0.949, green: 0.949, blue: 0.971): Color(red: 0.11, green: 0.11, blue: 0.118))
         .onAppear {
-            
             for info in globalViewModel.info {
                 var isSubjectInChart: Bool = UserDefaults.standard.bool(forKey: "is\(info.key)InChart")
                 checkBoxValue.append(.init(name: info.name, key: info.key, isInChart: isSubjectInChart, isOn: info.isOn))

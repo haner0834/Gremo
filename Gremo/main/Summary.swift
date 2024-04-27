@@ -46,12 +46,6 @@ struct Summary: View {
                                 isShowEdit.toggle()
                             })
                             
-//                            HStack {
-//                                Text("分數趨勢")
-//                                    .font(.title3.bold())
-//                                
-//                                Spacer()
-//                            }
                             SummaryChartView(minScore: viewModel.scoreSummary.minScore(),
                                              scoreSummary: viewModel.scoreSummary,
                                              scale: scale)
@@ -59,6 +53,11 @@ struct Summary: View {
                                 LinechartSetting()
                                     .environmentObject(globalViewModel)
                                     .presentationDetents([.fraction(0.7), .large])
+                            }
+                            .onChange(of: globalViewModel.info) { newValue in
+                                withAnimation(.snappy(duration: 0.5)) {
+                                    viewModel.initializeData()
+                                }
                             }
                         }
                     }
@@ -95,6 +94,7 @@ struct Summary: View {
                                 if info.isOn {
                                     NavigationButton(value: value)
                                         .frame(minHeight: 37)
+                                        .disabled(info.isInChart)
                                 }
                             }else {
                                 NavigationButton(value: value)
@@ -104,6 +104,7 @@ struct Summary: View {
                         }else if info.isOn {
                             NavigationButton(value: value)
                             .frame(minHeight: 37)
+                            .disabled(info.isInChart)
                         }
                     }
                 }
@@ -122,27 +123,17 @@ struct Summary_Previews: PreviewProvider {
     static var previews: some View {
         Summary(viewModel: SummaryViewModel(globalViewModel: GremoViewModel()))
             .environmentObject(GremoViewModel())
-            .task {
-                if #available(iOS 17, *) {
-                    try? Tips.resetDatastore()
-                    try? Tips.configure([
-//                        .displayFrequency(.immediate),
-                        .datastoreLocation(.applicationDefault)
-                    ])
-                }
-            }
+//            .task {
+//                if #available(iOS 17, *) {
+//                    try? Tips.resetDatastore()
+//                    try? Tips.configure([
+////                        .displayFrequency(.immediate),
+//                        .datastoreLocation(.applicationDefault)
+//                    ])
+//                }
+//            }
         
         Home(viewModel: GremoViewModel())
-            .task {
-                if #available(iOS 17, *) {
-                    try? Tips.resetDatastore()
-                    try? Tips.configure([
-//                        .displayFrequency(.immediate),
-                        .datastoreLocation(.applicationDefault)
-                    ])
-                }
-            }
-        
     }
 }
 

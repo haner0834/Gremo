@@ -26,19 +26,18 @@ struct ScoreCalculate: View {
     
     @State private var columns: [GridItem] = Array(repeating: GridItem(.flexible()), count: 3)
     
-    let LinearColor: [Color] = [
+    let linearColor: [Color] = [
         Color(red: 0.615, green: 0.737, blue: 0.997),
         Color(red: 0.785, green: 0.662, blue: 0.999),
         Color(hue: 0.766, saturation: 0.367, brightness: 0.983)
     ]
     
     var body: some View {
-        
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 HStack {
                     
-                    LinearGradient(colors: LinearColor,
+                    LinearGradient(colors: linearColor,
                                    startPoint: .leading,
                                    endPoint: .trailing)
                     .frame(width: 107, height: 50)
@@ -129,23 +128,7 @@ struct ScoreCalculate: View {
                             .focused($focused, equals: item.subject)
                             .opacity(item.isAllowsCalculate ? 1: 0.3)
                             .onChange(of: item.score) { newValue in
-                                //如果輸入為空且沒在輸入狀態
-                                if newValue.isEmpty && focused != nil {
-                                    viewModel.saveScoreData(newValue, forKey: item.key)
-                                    viewModel.calculateScore()
-                                    return
-                                }
-                                //判斷輸入的東西是否符合標準
-                                guard let score = Double(newValue) else { return }
-                                if score > 100 {
-                                    viewModel.subjects.info[i].score = "100"
-                                }
-                                
-                                viewModel.calculateScore()
-                                
-                                if focused != nil {
-                                    viewModel.saveAllScoreData()
-                                }
+                                viewModel.processScoreChanging(for: item, newScore: newValue, focus: focused, index: i)
                             }
                             .swipeActions {
                                 let isAllowCalculate = viewModel.subjects.info[i].isAllowsCalculate
@@ -235,7 +218,7 @@ struct ScoreCalculate: View {
                      alertItem: viewModel.changeType?.alertItem ?? AlertItem(title: "error", message: "error", buttomTitle: "error"),
                      button: Button(AlertContext.closedSubject.buttomTitle, action: viewModel.processRestore)
         )
-        .scrollDismissesKeyboard(.immediately)
+        .scrollDismissesKeyboard(.interactively)
         .onAppear {
             
             if #available(iOS 17, *) {

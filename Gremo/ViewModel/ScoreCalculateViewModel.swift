@@ -146,7 +146,7 @@ class ScoreCalculateViewModel: ObservableObject {
     
     func saveScoreData(_ score: String, forKey key: String) {
         userDefault.set(score, forKey: "\(key)Score\(scope + 1)")
-        print("saved data(score: '\(score)', key: \(key))")
+        print("saved data(score: '\(score)', key: \("\(key)Score\(scope + 1)"))")
     }
     
     func calculateAverageScore() {
@@ -286,6 +286,43 @@ class ScoreCalculateViewModel: ObservableObject {
             }else {
                 changeAllowsCalculate(for: changeSubject ?? .chinese)
             }
+        }
+    }
+    
+    func processScoreChanging(for item: SubjectInfo, newScore: String, focus: Subject?, index: Int) {
+        ///Three types of score changing
+        /// - User is typing                                        -> `focus != nil`
+        /// - Change scope(read stored data)          -> `focus == nil`
+        /// - Delete all score by delete-all button      -> `focus == nil && subjects.info.filter({ !$0.score.isEmpty }).isEmpty`
+        
+        if focus == nil && subjects.info.filter({ !$0.score.isEmpty }).isEmpty {
+            ///Delete all
+            calculateScore()
+            saveAllScoreData()
+            return
+        }else if focus == nil {
+            ///Initializing page(change scope)
+            calculateScore()
+            return
+        }
+        
+        //判斷輸入的東西是否符合標準
+        if let score = Double(newScore), focus != nil {
+            ///User is typing
+            
+            ///Limit score by 0 to 100
+            if score > 100 {
+                subjects.info[index].score = "100"
+            }else if score < 0 {
+                subjects.info[index].score = "0"
+            }
+            
+            calculateScore()
+            saveAllScoreData()
+            
+        }else if newScore.isEmpty {
+            calculateScore()
+            saveAllScoreData()
         }
     }
 }

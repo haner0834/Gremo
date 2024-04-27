@@ -24,15 +24,17 @@ struct SubjectInfo: Identifiable {
     var weighted: Double
     var isOn: Bool
     var isAllowsCalculate: Bool
+    var isInChart: Bool
     let subject: Subject
     let color: Color
     
-    init(score: String, weighted: Double, subject: Subject, isOn: Bool, isAllowsCalculate: Bool = true, color: Color) {
+    init(score: String, weighted: Double, subject: Subject, isOn: Bool, isInChart: Bool = true, isAllowsCalculate: Bool = true, color: Color) {
         self.score = score
         self.weighted = weighted
         self.subject = subject
         self.isOn = isOn
         self.color = color
+        self.isInChart = isInChart
         self.isAllowsCalculate = isAllowsCalculate
     }
     

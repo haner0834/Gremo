@@ -492,13 +492,13 @@ import Foundation
 									<key>EndingColumnNumber</key>
 									<string>0</string>
 									<key>EndingLineNumber</key>
-									<string>128</string>
+									<string>129</string>
 									<key>StartingColumnNumber</key>
 									<string>0</string>
 									<key>StartingLineNumber</key>
-									<string>127</string>
+									<string>128</string>
 									<key>Timestamp</key>
-									<string>732883955.126847</string>
+									<string>735838843.271342</string>
 								</dict>
 								<key>rebasable-url</key>
 								<dict>
@@ -524,8 +524,8 @@ import Foundation
 </string>
 								<key>trailing</key>
 								<string>        let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
-        //if the subject was accepted to show on chart (skip average status)
         guard isSubjectOn || key == "Average" else { return 0 }
+        var scores = [String]()
 </string>
 							</dict>
 							<key>title</key>
@@ -694,13 +694,13 @@ import Foundation
 									<key>EndingColumnNumber</key>
 									<string>0</string>
 									<key>EndingLineNumber</key>
-									<string>61</string>
+									<string>62</string>
 									<key>StartingColumnNumber</key>
-									<string>44</string>
+									<string>0</string>
 									<key>StartingLineNumber</key>
-									<string>60</string>
+									<string>61</string>
 									<key>Timestamp</key>
-									<string>726591875.303502</string>
+									<string>735838843.2713079</string>
 								</dict>
 								<key>rebasable-url</key>
 								<dict>
@@ -718,12 +718,12 @@ import Foundation
 							<key>text-context</key>
 							<dict>
 								<key>focused</key>
-								<string>
+								<string>    func getAverage(key: String) -&gt; Double {
 </string>
 								<key>leading</key>
 								<string>    }
     
-    func getAverage(key: String) -&gt; Double {</string>
+</string>
 								<key>trailing</key>
 								<string>        let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
         if key != "Average" {

@@ -17,6 +17,12 @@ extension SubjectInfo {
     }
 }
 
+extension SubjectInfo: Equatable {
+    static func ==(rsh: SubjectInfo, lsh: SubjectInfo) -> Bool {
+        return rsh.name == lsh.name && rsh.isOn == lsh.isOn && rsh.isAllowsCalculate == lsh.isAllowsCalculate && rsh.isInChart == lsh.isInChart && rsh.key == lsh.key && rsh.score == lsh.score && rsh.subject == lsh.subject && rsh.weighted == lsh.weighted && rsh.color == lsh.color
+    }
+}
+
 extension Array where Element == SubjectInfo {
     //用subject來找第幾項
     func getScore(for type: Subject) -> String {
@@ -95,10 +101,15 @@ extension Array where Element == SubjectInfo {
         let totalScore = filteredArray.getTotalScore()
         
         //取得加權分加總
-        let totalWeighted = filteredArray.reduce(0.0) { partialResult, scoreInfo in
-            let isAvailable = !scoreInfo.score.isEmpty && scoreInfo.isOn && scoreInfo.isAllowsCalculate
-            return partialResult + (isAvailable ? scoreInfo.weighted: 0)
-        }
+//        let totalWeighted = filteredArray.reduce(0.0) { partialResult, scoreInfo in
+//            let isAvailable = !scoreInfo.score.isEmpty && scoreInfo.isOn && scoreInfo.isAllowsCalculate
+//            return partialResult + (isAvailable ? scoreInfo.weighted: 0)
+//        }
+//        var totalWeighted = Double()
+//        for weighted in weightedes {
+//            totalWeighted += weighted
+//        }
+        let totalWeighted = weightedes.reduce(0, +)
         
         //計算後，把這項數據除以上面那些科目對應的加權分
         if totalWeighted != 0 {

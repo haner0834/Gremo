@@ -32,11 +32,12 @@ class SummaryViewModel: ObservableObject {
         
         addScoreSummary("Average", subjectName: "平均", color: .accentColor)
         
-        for info in globalViewModel.info where info.isOn && userDefault.bool(forKey: "is\(info.key)InChart") {
+        for info in globalViewModel.info where info.isOn && info.isInChart {
             addScoreSummary(info.key, subjectName: info.name, color: info.color)
         }
     }
     
+    ///For creating chart data
     func addScoreSummary(_ key: String, subjectName: String, color: Color) {
         var scores = [Count]()
         let examNames = ["一週", "一段", "二週", "二段", "三週", "三段"]
@@ -127,25 +128,49 @@ class SummaryViewModel: ObservableObject {
     
     func compareScore(key: String) -> Double {
         let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
-        //if the subject was accepted to show on chart (skip average status)
         guard isSubjectOn || key == "Average" else { return 0 }
-        
-        var scores: [String] = []
-        for i in 0..<6 {
-            let score = key == "Average" ? String(userDefault.double(forKey: "\(key)Score\(i + 1)")): userDefault.string(forKey: "\(key)Score\(i + 1)") ?? ""
-            scores.append(score)
+        var scores = [String]()
+        if key == "Average" {
+            for i in 0..<6 {
+                let score = userDefault.double(forKey: "\(key)Score\(i + 1)")
+                scores.append(score == 0 ? "": String(score))
+            }
+        }else {
+            for i in 0..<6 {
+                let score = userDefault.string(forKey: "\(key)Score\(i + 1)") ?? ""
+                scores.append(score)
+            }
+        }
+        ///Filter the item which has been stored score
+        let filteredScores = scores.filter { !$0.isEmpty }
+        if filteredScores.count >= 2 {
+            let reversedScores: [String] = filteredScores.reversed()
+            let front = Double(reversedScores[1]) ?? 0
+            let back = Double(reversedScores[0]) ?? 0
+            return back - front
         }
         
-        var result = Double()
-        let newList = scores.filter { key != "Average" ? !$0.isEmpty: Double($0)! != 0 }
-        if newList.count > 1 {
-            let i = newList.count - 1
-            let front = Double(newList[i]) ?? 0
-            let back = Double(newList[i - 1]) ?? 0
-            result = front - back
-            print("subject name: \(key), front: \(front), back: \(back), result: \(result)")
-        }
-        
-        return result
+        return 0
+//        let isSubjectOn = userDefault.bool(forKey: "is\(key)On")
+//        //if the subject was accepted to show on chart (skip average status)
+//        guard isSubjectOn || key == "Average" else { return 0 }
+//        
+//        var scores: [String] = []
+//        for i in 0..<6 {
+//            let score = key == "Average" ? String(userDefault.double(forKey: "\(key)Score\(i + 1)")): userDefault.string(forKey: "\(key)Score\(i + 1)") ?? ""
+//            scores.append(score)
+//        }
+//        
+//        var result = Double()
+//        let newList = scores.filter { key != "Average" ? !$0.isEmpty: Double($0)! != 0 }
+//        if newList.count > 1 {
+//            let i = newList.count - 1
+//            let front = Double(newList[i]) ?? 0
+//            let back = Double(newList[i - 1]) ?? 0
+//            result = front - back
+//            print("subject name: \(key), front: \(front), back: \(back), result: \(result)")
+//        }
+//        
+//        return result
     }
 }
